@@ -14,8 +14,8 @@
 #
 class User < ApplicationRecord
 
-    validates :username, :email, :session_token, :password_digest, presence: true
-    validates :username, :email, :session_token, uniqueness: true
+    validates :password_digest, presence: true
+    validates :username, :email, :session_token, uniqueness: true, presence: true
     validates :password, length: {minimum: 8, allow_nil: true}
 
     attr_reader :password
@@ -24,6 +24,7 @@ class User < ApplicationRecord
 
     def self.find_by_credentials(email,password)
         user = User.find_by(email: email)
+        #do i also want to allow username login?
         if user && user.is_password?(password)
             user
         else
@@ -44,13 +45,15 @@ class User < ApplicationRecord
         self.password_digest = BCrypt::Password.create(password)
     end
 
-    def ensure_session_token
-        self.session_token ||= generate_session_token
-    end
 
     def reset_session_token!
         self.session_token = generate_session_token
         self.save!
         self.session_token
+    end
+
+    private #private?
+    def ensure_session_token
+        self.session_token ||= generate_session_token
     end
 end
