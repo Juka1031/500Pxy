@@ -33,27 +33,45 @@ class LoginForm extends React.Component {
 
     render(){
         return (
-            <div className= "login-form">
-                <h1>Login</h1>
-                <form>
-                    <label>Email
-                        <input 
-                            type="text"
-                            value = {this.state.email}
-                            onChange = {this.update('email')}
-                        />
-                    </label>
-                    <label>Password
-                        <input 
-                            type="password"
-                            value = {this.state.password}
-                            onChange = {this.update('password')}
-                        />
-                    </label>
-                    <button onClick={this.handleSubmit}>Login</button>
-                </form>
-                <div>Don't have an account? <Link to="/signup">Sign up</Link></div>
+            <div className="login-container">
+                <div className= "login-form">
+                    <h3>Log in to 500Pxy</h3>
+                    <form>
+                        <label className = "email-password-label">Email
+                            <br/>
+                            <input 
+                                type="text"
+                                value = {this.state.email}
+                                onChange = {this.update('email')}
+                                className = "email-password-input"
+                            />
+                        </label>
+                        <br/>
+                        <br/>
+                        <label className = "email-password-label" >Password
+                            <br/>
+                            <input 
+                                type="password"
+                                value = {this.state.password}
+                                onChange = {this.update('password')}
+                                className = "email-password-input"
+                            />
+                        </label>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <button className = "login-button" onClick={this.handleSubmit}>Log in</button>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <button className="login-button">Demo user</button>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </form>
+                    <div>Don't have an account? <Link to="/signup">Sign up</Link></div>
 
+                </div>
             </div>
         )
     };

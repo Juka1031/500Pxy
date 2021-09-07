@@ -18,7 +18,7 @@ const Header = ({loggedStatus, logout}) => {
         return(
             <div>
                 <h1>If user not logged in</h1>
-                <LoginFormContainer/>
+                {/* <LoginFormContainer/> */}
             </div>
         )
     }

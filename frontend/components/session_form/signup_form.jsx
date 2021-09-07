@@ -30,28 +30,42 @@ class SignupForm extends React.Component {
 
     render(){
         return (
-            <div className= "signup-form">
-                <h1>Sign Up</h1>
-                <form>
-                    <label>Email
-                        <input 
-                            type="text"
-                            value = {this.state.email}
-                            onChange = {this.update('email')}
-                        />
-                    </label>
-                    <label>Password
-                        <input 
-                            type="password"
-                            placeholder = "(minimum 8 characters)"
-                            value = {this.state.password}
-                            onChange = {this.update('password')}
-                        />
-                    </label>
-                    <button onClick={this.handleSubmit}>Sign up</button>
-                </form>
-                <div>Already have an account? <Link to="/login">Login</Link></div>
+            <div className= 'signup-container'>
+                <div className= "signup-form">
+                    <h3>Sign Up</h3>
+                    <form>
+                        <label className = "email-password-label">Email
+                            <br/>
+                            <input 
+                                type="text"
+                                value = {this.state.email}
+                                onChange = {this.update('email')}
+                                className = "email-password-input"
+                            />
+                        </label>
+                        <br/>
+                        <br/>
+                        <label className = "email-password-label">Password
+                            <br/>
+                            <input 
+                                type="password"
+                                placeholder = "(minimum 8 characters)"
+                                value = {this.state.password}
+                                onChange = {this.update('password')}
+                                className = "email-password-input"
+                            />
+                        </label>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <button className = "login-button" onClick={this.handleSubmit}>Sign up</button>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </form>
+                    <div>Already have an account? <Link to="/login">Login</Link></div>
 
+                </div>
             </div>
         )
     };

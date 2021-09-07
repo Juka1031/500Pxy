@@ -8,7 +8,7 @@ import LoginFormContainer from './session_form/login_form_container';
 
 const App = () => (
     <div>
-        <h1>500Pxy</h1>
+        <h1>im a header</h1>
        
         <Switch>
             
