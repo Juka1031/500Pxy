@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-
-class SignupForm extends React.Component { 
+class LoginForm extends React.Component { 
     constructor(props){
         super(props)
         this.state = {
@@ -23,15 +22,19 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         //create a shallow copy with Object.assign?
-        this.props.signupForm(this.state)
+        this.props.loginForm(this.state)
+    }
+
+    renderErrors(){
+        
     }
 
     
 
     render(){
         return (
-            <div className= "signup-form">
-                <h1>Sign Up</h1>
+            <div className= "login-form">
+                <h1>Login</h1>
                 <form>
                     <label>Email
                         <input 
@@ -43,18 +46,17 @@ class SignupForm extends React.Component {
                     <label>Password
                         <input 
                             type="password"
-                            placeholder = "(minimum 8 characters)"
                             value = {this.state.password}
                             onChange = {this.update('password')}
                         />
                     </label>
-                    <button onClick={this.handleSubmit}>Sign up</button>
+                    <button onClick={this.handleSubmit}>Login</button>
                 </form>
-                <div>Already have an account? <Link to="/login">Login</Link></div>
+                <div>Don't have an account? <Link to="/signup">Sign up</Link></div>
 
             </div>
         )
     };
 };
 
-export default SignupForm;
+export default LoginForm;

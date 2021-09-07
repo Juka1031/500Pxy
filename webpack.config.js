@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-    entry: "./frontend/index.jsx",
+    entry: "./frontend/500pxy.jsx",
     output: {
         path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
         filename: 'bundle.js'

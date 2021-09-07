@@ -9,34 +9,29 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
 export const signup = user => dispatch => (
     SessionAPIUtil.signup(user)
-    .then(user => (dispatch({type: RECEIVE_CURRENT_USER, user})
-    ),
-    errors => (dispatch({type: RECEIVE_SESSION_ERRORS, errors})
-    ))
-  );
+    .then(user => (dispatch({type: RECEIVE_CURRENT_USER, user})),
+    errors => (dispatch({type: RECEIVE_SESSION_ERRORS, errors})))
+);
   
-  export const login = user => dispatch => (
+export const login = user => dispatch => (
     SessionAPIUtil.login(user)
-    .then(user => (dispatch({type: RECEIVE_CURRENT_USER, user})
-    ),
-    errors => (dispatch({type: RECEIVE_SESSION_ERRORS, errors})
-    ))
-  );
+    .then(user => (dispatch({type: RECEIVE_CURRENT_USER, user})),
+    errors => (dispatch({type: RECEIVE_SESSION_ERRORS, errors}) ))
+);
   
-  export const logout = () => dispatch => (
+export const logout = () => dispatch => (
     SessionAPIUtil.logout()
-    .then(() => (dispatch({type: LOGOUT_CURRENT_USER,})
-    ))
-  );
+    .then(() => (dispatch({type: LOGOUT_CURRENT_USER,})))
+);
 
 
 
 
 
 
-// export const receiveCurrentUser = currentUser => ({
+// export const receiveCurrentUser = user => ({
 //     type: RECEIVE_CURRENT_USER,
-//     currentUser
+//     user
 //   });
   
 //   export const logoutCurrentUser = () => ({
