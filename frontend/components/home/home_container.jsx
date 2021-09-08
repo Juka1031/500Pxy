@@ -3,7 +3,6 @@ import { logout } from '../../actions/session_actions';
 import Home from './home';
 
 const mSTP = ({ session, entities: { users } }) => {
-    // debugger
     return {
         users,
       currentUser: users[session.id]

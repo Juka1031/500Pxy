@@ -3,7 +3,6 @@ import { updateUser, clearErrors } from '../../actions/session_actions';
 import Onboarding from './onboarding';
 
 const mSTP = ({ session, entities: { users } }) => {
-    debugger
     return {
         users,
       currentUser: users[session.id]

@@ -7,7 +7,6 @@ import { WithRouter} from 'react-router'
 class SignupForm extends React.Component { 
     constructor(props){
         super(props)
-        // debugger
         this.state = {
             username: '',
             firstName: '',
@@ -25,7 +24,6 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         //create a shallow copy with Object.assign?
         this.props.signupForm(this.state)
@@ -47,7 +45,6 @@ class SignupForm extends React.Component {
     
 
     render(){
-        // debugger
         return (
             <div className= 'signup-container'>
                 <div className= "signup-form">

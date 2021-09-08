@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
         
         
         if @user.save!
-            # debugger
+
             login!(@user)
             render 'api/users/show'
         else
@@ -23,9 +23,8 @@ class Api::UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        debugger
         if @user.update(user_params)
-            debugger
+
             render 'api/users/show'
         else
             render json: @user.errors.full_messages, status: 422

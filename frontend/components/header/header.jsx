@@ -17,7 +17,7 @@ const Header = ({loggedStatus, logout}) => {
         return(
             <div>
                 <a href="#">Pxy</a>
-                <a href="#">Discover</a>
+                <a href="#">Discover &#812;</a>
                 <a href="#">Licensing</a>
                 <a href="#">Portfolio</a>
                 <a href="#">Memberships</a>

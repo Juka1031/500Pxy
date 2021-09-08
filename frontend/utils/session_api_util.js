@@ -26,7 +26,6 @@ export const logout = () => ( //delete session
 );
   
 export const updateUser = user => {
-    debugger
    return(
     $.ajax({
         url: `/api/users/${user.id}`,

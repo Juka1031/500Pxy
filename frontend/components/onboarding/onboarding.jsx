@@ -2,7 +2,6 @@ import React from 'react'
 
 class Onboarding extends React.Component{
     constructor(props){
-        debugger
         super(props)
         this.state = {
             username: '',
@@ -19,7 +18,6 @@ class Onboarding extends React.Component{
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         //create a shallow copy with Object.assign?
         this.props.updateUser(this.state)
@@ -46,6 +44,7 @@ class Onboarding extends React.Component{
                     <form>
                         <span className="onboard-errors"></span>
                         <label className = "email-password-label">First Name
+
                         <br/>
                         <input 
                             type="text"
@@ -57,6 +56,7 @@ class Onboarding extends React.Component{
                         <br/>
                         <br/>
                         <label className = "email-password-label">Last Name
+
                             <br/>
                             <input
                                 type="text" 
@@ -68,6 +68,7 @@ class Onboarding extends React.Component{
                         <br/>
                         <br/>
                         <label className = "email-password-label">Username
+
                             <br/>
                             <input
                                 type="text" 
