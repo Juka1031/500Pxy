@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
             // avatarimage?
         };
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleGuest = this.handleGuest.bind(this)
     };
 
     update(field) {
@@ -26,17 +27,37 @@ class LoginForm extends React.Component {
     }
 
     renderErrors(){
-        
+        return(
+            <ul>
+                {this.props.errors.map((error,idxKey) =>(
+                    <li key={`${idxKey}`}>{error}<br/></li>
+                    
+                ))}
+            </ul>
+        )
     }
 
-    
+    componentWillUnmount(){
+        this.props.clearErrors();
+    }
+
+    handleGuest(e){
+        e.preventDefault
+        this.props.loginForm({email:"demouser123@gmail.com", password:"helloworld"})
+    }
+
 
     render(){
+        
+        // debugger
         return (
             <div className="login-container">
                 <div className= "login-form">
                     <h3>Log in to 500Pxy</h3>
                     <form>
+                        
+                    {this.renderErrors()}
+                        
                         <label className = "email-password-label">Email
                             <br/>
                             <input 
@@ -64,13 +85,12 @@ class LoginForm extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <button className="login-button">Demo user</button>
+                        <button className="login-button" onClick={this.handleGuest}>Demo user</button>
                         <br/>
                         <br/>
                         <br/>
                     </form>
                     <div>Don't have an account? <Link to="/signup">Sign up</Link></div>
-
                 </div>
             </div>
         )

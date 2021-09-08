@@ -1,19 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { Route, Redirect, withRouter } from 'react-router-dom';
+import { WithRouter} from 'react-router'
+
 
 class SignupForm extends React.Component { 
     constructor(props){
         super(props)
+        // debugger
         this.state = {
-            // username: '',
-            // firstName: '',
-            // lastName: '',
-            // username firstname and last name is input after the account is made
+            username: '',
+            firstName: '',
+            lastName: '',
             email: '',
             password: '',
             // avatarimage?
         };
         this.handleSubmit = this.handleSubmit.bind(this)
+
     };
 
     update(field) {
@@ -21,19 +25,35 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         //create a shallow copy with Object.assign?
         this.props.signupForm(this.state)
+    
     }
-
+    componentWillUnmount(){
+        this.props.clearErrors();
+    }
+    renderErrors(){
+        return(
+            <ul>
+                {this.props.errors.map((error,idxKey) =>(
+                    <li key={`${idxKey}`}>{error}</li>
+                ))}
+            </ul>
+        )
+    }
+ 
     
 
     render(){
+        // debugger
         return (
             <div className= 'signup-container'>
                 <div className= "signup-form">
                     <h3>Sign Up</h3>
                     <form>
+                    <span className="error-messages">{this.renderErrors()}</span>
                         <label className = "email-password-label">Email
                             <br/>
                             <input 
@@ -62,6 +82,7 @@ class SignupForm extends React.Component {
                         <br/>
                         <br/>
                         <br/>
+
                     </form>
                     <div>Already have an account? <Link to="/login">Login</Link></div>
 
