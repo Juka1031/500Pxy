@@ -51,7 +51,8 @@ class SignupForm extends React.Component {
                 <div className= "signup-form">
                     <h3>Sign Up</h3>
                     <form>
-                    <span className="error-messages">{this.renderErrors()}</span>
+                    {this.renderErrors()}
+                    <span className="error-messages"></span>
                         <label className = "email-password-label">Email
                             <br/>
                             <input 
