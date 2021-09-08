@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import Vine from 'Images/2.PNG'
-import Pencil from 'Images/3.PNG'
-import Graph from 'Images/4.PNG'
+
+import Pencil from '../../../app/assets/images/3.PNG'
+import Graph from '../../../app/assets/images/4.PNG'
+import Vine from '../../../app/assets/images/2.PNG'
 // import Icon from ''
 const Splash = () => {
 

@@ -33,6 +33,7 @@ class SignupForm extends React.Component {
         this.props.clearErrors();
     }
     renderErrors(){
+        debugger
         return(
             <ul>
                 {this.props.errors.map((error,idxKey) =>(

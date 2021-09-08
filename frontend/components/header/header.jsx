@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import LoginFormContainer from "../session_form/login_form_container"
 import Logo from 'Images/Logo.PNG'
+import Logo2 from '../../../app/assets/images/Logo.PNG'
 
 const Header = ({loggedStatus, logout}) => {
 
@@ -18,7 +19,7 @@ const Header = ({loggedStatus, logout}) => {
             
             <div>
                 
-                <span ><a href="#"><img src={Logo} className="Logo"/></a></span>
+                <span ><a href="#"><img src={Logo2} className="Logo"/></a></span>
                 <span><a href="#">Discover</a></span>
                 <span><a href="#">Licensing</a></span>
                 <span><a href="#">Portfolio</a></span>
