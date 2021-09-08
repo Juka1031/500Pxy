@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
         @user.lastName = ""
         
         
-        if @user.save!
+        if @user.save
 
             login!(@user)
             render 'api/users/show'

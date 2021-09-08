@@ -27,10 +27,11 @@ class LoginForm extends React.Component {
     }
 
     renderErrors(){
+        
         return(
             <ul>
                 {this.props.errors.map((error,idxKey) =>(
-                    <li key={`${idxKey}`}>{error}<br/></li>
+                    <li className="errors" key={`${idxKey}`}>{error}<br/></li>
                     
                 ))}
             </ul>
@@ -48,8 +49,7 @@ class LoginForm extends React.Component {
 
 
     render(){
-        
-        return (
+            return (
             <div className="login-container">
                 <div className= "login-form">
                     <h3>Log in to 500Pxy</h3>

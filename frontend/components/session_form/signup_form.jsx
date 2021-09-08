@@ -24,6 +24,7 @@ class SignupForm extends React.Component {
     }
 
     handleSubmit(e) {
+
         e.preventDefault();
         //create a shallow copy with Object.assign?
         this.props.signupForm(this.state)
@@ -33,11 +34,11 @@ class SignupForm extends React.Component {
         this.props.clearErrors();
     }
     renderErrors(){
-        debugger
+
         return(
             <ul>
                 {this.props.errors.map((error,idxKey) =>(
-                    <li key={`${idxKey}`}>{error}</li>
+                    <li className ="errors" key={`${idxKey}`}>{error}</li>
                 ))}
             </ul>
         )
@@ -46,13 +47,13 @@ class SignupForm extends React.Component {
     
 
     render(){
+
         return (
             <div className= 'signup-container'>
                 <div className= "signup-form">
                     <h3>Sign Up</h3>
                     <form>
-                    {this.renderErrors()}
-                    <span className="error-messages"></span>
+                    <span className="error-messages">{this.renderErrors()}</span>
                         <label className = "email-password-label">Email
                             <br/>
                             <input 
