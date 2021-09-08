@@ -7,13 +7,13 @@ class Api::UsersController < ApplicationController
     def create
         
         @user = User.new(user_params)
-        # @user.username = user_params[:email]
+        @user.username = user_params[:email]
         @user.firstName = ""
         @user.lastName = ""
         
         
         if @user.save!
-            debugger
+            # debugger
             login!(@user)
             render 'api/users/show'
         else
@@ -23,7 +23,7 @@ class Api::UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-
+        debugger
         if @user.update(user_params)
             debugger
             render 'api/users/show'

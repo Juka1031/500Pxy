@@ -18,7 +18,7 @@ class Home extends React.Component {
     render(){
         debugger
         let redirect
-        if(this.props.currentUser.firstName === undefined && this.props.currentUser.lastName === undefined){
+        if(this.props.currentUser.firstName === "" && this.props.currentUser.lastName === ""){
             redirect = true;
             // debugger
         }
@@ -28,8 +28,9 @@ class Home extends React.Component {
                 <div><Redirect to="/onboarding"/></div>
             )
         }else{
-
+            return(
             <div>im a  home feed</div>
+            )
         }
         
 
