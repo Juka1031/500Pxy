@@ -32,10 +32,22 @@
 }
 
 .header-right-side{
-    /* border:1px solid; */
-    border-color: rgb(17, 0, 253);
+
     margin-right: 1%;
     width:15%;
+    white-space: nowrap;
+    overflow:hidden;
+    line-height: 29px;
+    font-size: 18px;
+    font-weight: 600;
+    display:flex;
+    justify-content:space-evenly;
+}
+
+.logged-header-right-side{
+
+    margin-left: 1%;
+    width:20%;
     white-space: nowrap;
     overflow:hidden;
     line-height: 29px;
@@ -73,3 +85,25 @@
 .Logo {
     height:70%;
 }
+
+
+.nav-bar-item {
+    list-style-type: none;
+}
+
+/* profile dropdown */
+
+.profile-dropdown {
+    position: absolute;
+    top: 50px;
+    width: 100x;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+
+.avatar {
+    margin-top: 10px;
+}
+

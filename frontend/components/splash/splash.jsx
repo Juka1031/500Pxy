@@ -8,7 +8,6 @@ const Splash = () => {
         <div className="splash-full-body">
             <div className="discover-container">
                 <div className="discover-text">
-                    
                     <h1>Discover and share the world’s best photos</h1>
                     <h5>Get inspired with incredible photos from diverse styles and genres around the world. We're not guided by fads—just great photography</h5>
                        

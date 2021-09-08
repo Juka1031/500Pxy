@@ -19,8 +19,10 @@ class Onboarding extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        //create a shallow copy with Object.assign?
+        debugger
+        
         this.props.updateUser(this.state)
+        window.location.replace("#/")
         
     }
     componentWillUnmount(){

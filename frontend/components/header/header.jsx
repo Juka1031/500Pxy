@@ -1,36 +1,37 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import LoginFormContainer from "../session_form/login_form_container"
+import Avatar from 'Images/avatar.PNG'
 
 
 const Header = ({loggedStatus, logout}) => {
 
 
-    // return (
-    // <div>
-        
-    
-    // </div>
-    // )
     if (loggedStatus) {//if a user is logged in, present a nav bar with log out
         
         return(
             
             <div>
-                
-                <span ><a href="#"><img src={logo} className="Logo"/></a></span>
-                <span><a href="#">Discover</a></span>
-                <span><a href="#">Licensing</a></span>
-                <span><a href="#">Portfolio</a></span>
-                <span><a href="#">Memberships</a></span>
-                <span><a href="#">Quests</a></span>
-                <span><a href="#">Blog</a></span>
-                <a href="#">Profile picture button</a>
-                <a href="#">Airplane</a>
-                <a href="#">Notification</a>
-                <a href="#">Upload</a>
-                <h1>If some1 logged in</h1>
-                <button onClick={logout}><Link to="/">Logout</Link></button>
+                <div className="header-container">
+                    <div className = "header-left-side">
+                        <span ><a href="#"><img src={logo} className="Logo"/></a></span>
+                        <span><a href="#">Discover</a></span>
+                        <span><a href="#">Licensing</a></span>
+                        <span><a href="#">Portfolio</a></span>
+                        <span><a href="#">Memberships</a></span>
+                        <span><a href="#">Quests</a></span>
+                        <span><a href="#">Blog</a></span>
+                    </div>
+                    <div className = "logged-header-right-side">
+                    <ul className="avatar">
+                        <ProfileDrop>
+                             <ProfileDropItems logout={logout} />
+                        </ProfileDrop>
+                    </ul>
+                        <a href="#">Upload</a>
+                        <button onClick={logout}><Link to="/">Logout</Link></button>
+
+                    </div>
+                </div>
             </div>
         )
     }
@@ -56,5 +57,49 @@ const Header = ({loggedStatus, logout}) => {
     }
 
 }
+
+class ProfileDrop extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { active: false };
+    
+        this.handleClick = this.handleClick.bind(this);
+    }
+  
+    handleClick(e) {
+        e.preventDefault();
+        this.setState({ active: !this.state.active });
+    }
+  
+    render() {
+        return (
+            <>
+                <li>
+                    <a href="#" onClick={this.handleClick}>
+                        <img src= {Avatar}/>
+                    </a>
+                </li>
+                { this.state.active && this.props.children }
+            </>
+        )
+    }
+}
+  
+const ProfileDropItems = props => {
+    return (
+        <div className="profile-dropdown">
+            <ul>
+                <li><a className = "profile-items" onClick={props.logout}>Profile</a></li>
+                <li><a className = "profile-items" onClick={props.logout}>Galleries</a></li>
+                <li><a className = "profile-items" onClick={props.logout}>Liked Photos</a></li>
+                <li><a className = "profile-items" onClick={props.logout}>Settings</a></li>
+                <li><a className = "profile-items" onClick={props.logout}>Logout</a></li>
+            </ul>
+            
+        </div>
+    )
+}
+  
+
 
 export default Header;
