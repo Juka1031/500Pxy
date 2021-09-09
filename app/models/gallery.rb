@@ -12,7 +12,6 @@
 class Gallery < ApplicationRecord
 
     validates :title, :gallery_owner_id, presence: true
-    validates :description
 
     
 
