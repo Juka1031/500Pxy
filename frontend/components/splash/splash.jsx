@@ -34,6 +34,38 @@ const Splash = () => {
                     </div>
                 </div>
             </div>
+            <div className="join-community">
+                <h3>Join our community today</h3>
+                <h5>Do you love photography? Want to constantly stay inspired and be surrounded by millions of like-minded creators? Then sign-up today and get rewarded for your love of photography.</h5>
+                <button className="footer-login-button"><Link to="/signup">Sign up</Link></button>
+            </div>
+
+            <div className="splash-footer">
+
+                 <ul>
+                    <h6>Community</h6>
+                    <li>Popular Photos</li>
+                    <li>Galleries</li>
+                    <li>Trending</li>
+
+                </ul>
+                <ul>
+                    <h6>Company</h6>
+                    <li>Newsroom</li>
+                    <li>About us</li>
+                    <li>Carrer</li>
+                </ul>
+                
+                <ul>
+                    <h6>About me</h6>
+                    <li>Github</li>
+                    <li>Linkedin</li>
+                    <li>Other projects</li>
+
+                </ul>
+
+
+            </div>
         </div>
     )
 }

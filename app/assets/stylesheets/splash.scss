@@ -88,3 +88,84 @@
     font-weight:500;
 }
 
+// footer
+.join-community {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    height:20rem;
+    width:100%;
+    background-color: rgb(69, 69, 124);
+}
+
+.join-community h3 {
+    font-size: 40px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.join-community h5 {
+    font-size: 16px;
+    font-weight: 500;
+    width: 40%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-top: 130px;
+}
+
+.footer-login-button {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    margin-top: 190px;
+    border-radius: 50px;
+    border:none;
+    width: 215px;
+    font-weight:600;
+    height: 60px;
+    font-size: 20px;
+    background-color: white;
+}
+
+
+.footer-login-button a{
+    width: 215px;
+    text-decoration: none;
+    color: black;
+}
+
+.splash-footer{
+    height: 150px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-left: 8%;
+    align-items: center;
+    width: 75%;
+    display:flex;
+    justify-content: space-around;
+}
+
+
+
+
+.splash-footer  h6{
+    margin: 3px;
+    font-size: 20px;
+    color:rgb(109, 109, 109);
+    margin-bottom: 3px;
+}
+
+.splash-footer li {
+    margin: 3px;
+    line-height: 24px;
+    color: gray;
+}
