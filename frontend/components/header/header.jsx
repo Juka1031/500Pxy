@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import Avatar from 'Images/avatar.PNG'
+// import Avatar from 'Images/avatar.PNG'
 
 
 const Header = ({loggedStatus, logout}) => {
@@ -76,7 +76,7 @@ class ProfileDrop extends React.Component {
             <>
                 <li>
                     <a href="#" onClick={this.handleClick}>
-                        <img src= {Avatar}/>
+                        <img src= {avatar}/>
                     </a>
                 </li>
                 { this.state.active && this.props.children }
