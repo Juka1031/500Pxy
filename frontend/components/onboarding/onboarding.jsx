@@ -19,7 +19,6 @@ class Onboarding extends React.Component{
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         
         this.props.updateUser(this.state)
         window.location.replace("#/")
