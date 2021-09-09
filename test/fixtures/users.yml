@@ -11,6 +11,8 @@
 #  password_digest :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  firstName       :string
+#  lastName        :string
 #
 
 # This model initially had no columns defined. If you add columns to the
