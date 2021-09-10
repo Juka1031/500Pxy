@@ -14,13 +14,15 @@ export const fetchImages = () => (
     })
   );
 
-export const createImage = image => ( // post image
-    $.ajax({
+export const createImage = image => { // post image
+    return $.ajax({
         url:'/api/images',
         method: 'POST',
-        data: {image}
+        data: image,
+        contentType: false,
+        processData: false,
     })
-)
+}
 
 
 

@@ -8,22 +8,36 @@ class Upload extends React.Component {
             description :"",
             uploaderId : props.currentUser.id,
             imageFile: null,
-            stage : 2
+            stage : 1,
+            imageUrl : null
         }
         this.handleUpload = this.handleUpload.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleUpload(e){
-        this.setState({imageFile: e.currentTarget.files[0], stage:2})
+        const file = e.currentTarget.files[0]
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({imageFile: file, stage:2, imageUrl: fileReader.result})
+        }
+        if (file){
+            fileReader.readAsDataURL(file)
+        }
+        
     }
 
     handleSubmit(e) {
+        
         e.preventDefault();
             const formData = new FormData();
-            formData.append("image[title]", this.state.title)
-            formData.append("image[description]", this.state.description)
-            formData.append("image[ownerId]", this.state.uploaderId)
-            formData.append("image[photo]", this.state.imageFile)
+            formData.append("image[image_title]", this.state.title)
+            formData.append("image[image_description]", this.state.description)
+            formData.append("image[uploader_id]", this.state.uploaderId)
+            if (this.state.imageFile) {
+                formData.append("image[uploaded_image]", this.state.imageFile)
+            }
+            this.props.upload(formData)
 
     }
 
@@ -31,29 +45,32 @@ class Upload extends React.Component {
         return e => this.setState({[field]: e.currentTarget.value});
     }
 
-    renderErrors(){
-        return(
-            <ul>
-                {this.props.errors.imageErrors.map((error,idxKey) =>(
-                    <li className ="errors" key={`${idxKey}`}>{error}</li>
-                ))}
-            </ul>
-        )
-    }
+    // renderErrors(){
+    //     return(
+    //         <ul>
+    //             {this.props.errors.imageErrors.map((error,idxKey) =>(
+    //                 <li className ="errors" key={`${idxKey}`}>{error}</li>
+    //             ))}
+    //         </ul>
+    //     )
+    // }
 
     render(){
         
-    
+            const preview = this.state.imageUrl ? <img src = {this.state.imageUrl} /> :null
             return (
                 this.state.stage === 1 ?
-                <div>
+                <div className="upload-stage1">
+
+                    <h1>Upload</h1>
                     <br />
                     <br />
                     <br />
                     <br />
-                    <h1>Upload Images</h1>
+                    <img className = "upload-arrow" src={uparrow}/>
+                    <h1 className="upload-images-text">Upload Images</h1>
                     <input id="upload-image" type="file" style={{ display: "none" }} onChange={this.handleUpload} className="input-file-button" accept="image/jpeg, image/png"/>
-                    <label htmlFor="upload-image">Select Image</label>
+                    <label className="upload-label-button" htmlFor="upload-image">Select Image</label>
                 </div>
                 :
                 <div>
@@ -65,7 +82,9 @@ class Upload extends React.Component {
                         <br/>
                         <br/>
                     <form>
-                    <span className="error-messages">{this.renderErrors()}</span>
+                    {/* <span className="error-messages">{this.renderErrors()}</span> */}
+                        {preview}
+                        <br/>
                         <label>Title
                             <br/>
                             <input 

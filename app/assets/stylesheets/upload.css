@@ -1,0 +1,32 @@
+.upload-arrow{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.upload-stage1 {
+    margin-top: 10%;
+    align-items: center;
+}
+
+.upload-images-text {
+    text-align: center;
+}
+
+.upload-label-button {
+    display: block;
+    color:white;
+    background-color: blue;
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
+    
+}
+
+.upload-label-button:hover {
+    background-color: blueviolet;
+    cursor: pointer;
+}

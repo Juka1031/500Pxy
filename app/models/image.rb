@@ -14,7 +14,7 @@ class Image < ApplicationRecord
     validates :image_title, :uploader_id, presence: true
 
 
-    belong_to :user,
+    belongs_to :user,
     foreign_key: :uploader_id,
     class_name: :User
 
