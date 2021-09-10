@@ -21,6 +21,10 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 8, allow_nil: true}
     validates :email, uniqueness: true, presence: true,format: { with: URI::MailTo::EMAIL_REGEXP } 
 
+    has_many :images,
+    foreign_key: :uploader_id,
+    class_name: :Image
+
     attr_reader :password
     after_initialize :ensure_session_token
 

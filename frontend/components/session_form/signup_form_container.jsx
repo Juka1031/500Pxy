@@ -4,6 +4,7 @@ import { signup, clearErrors } from "../../actions/session_actions";
 import SignupForm from "./signup_form";
 
 const mSTP = ({errors}) => {
+    debugger
     return {
         errors: errors.session,
     }

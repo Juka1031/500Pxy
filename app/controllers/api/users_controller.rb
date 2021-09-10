@@ -7,7 +7,18 @@ class Api::UsersController < ApplicationController
     def create
         
         @user = User.new(user_params)
-        @user.username = user_params[:email]
+        email = user_params[:email]
+        username = email.slice(0..(email.index("@")-1))
+        temp_username = ""
+        found = true
+        while(found)
+            if (User.find_by(username: temp_username) == nil)
+                found = false
+            end
+            temp_username = username + rand(10000).to_s
+            
+        end
+        @user.username = temp_username
         @user.firstName = ""
         @user.lastName = ""
         

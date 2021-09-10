@@ -73,7 +73,8 @@ class Onboarding extends React.Component{
                             <br/>
                             <input
                                 type="text" 
-                                value={this.state.username}
+                                value = {`${this.state.username}`}
+                                // value={this.state.username}
                                 onChange= {this.update('username')}
                                 className = "email-password-input"
                             />

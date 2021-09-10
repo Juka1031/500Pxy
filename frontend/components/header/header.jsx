@@ -27,7 +27,7 @@ const Header = ({loggedStatus, logout}) => {
                              <ProfileDropItems logout={logout} />
                         </ProfileDrop>
                     </ul>
-                        <a href="#">Upload</a>
+                        <a href="#/upload">Upload</a>
                         <button onClick={logout}><Link to="/">Logout</Link></button>
 
                     </div>
