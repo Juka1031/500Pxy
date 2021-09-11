@@ -3,10 +3,9 @@ class Api::ImagesController < ApplicationController
     def index
 
         if params.has_key?(:user_id)
-            # debugger
             @images = Image.where(uploader_id: params[:user_id])
         end
-            render :index
+            # render :index test
     end
 
     def show
