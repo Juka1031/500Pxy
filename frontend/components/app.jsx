@@ -9,6 +9,7 @@ import { Switch } from 'react-router';
 import { Route } from 'react-router-dom';
 import LoginFormContainer from './session_form/login_form_container';
 import UploadContainer from './upload/upload_container';
+import ProfileContainer from './user/profile_container';
 
 const App = () => (
     <div>
@@ -26,7 +27,7 @@ const App = () => (
             <ProtectedRoute exact path = "/upload" component={UploadContainer}/>
             <ProtectedRoute exact path = "/home" component={HomeContainer}/>
             <ProtectedRoute exact path = "/onboarding" component={EditUserForm}/>
-            
+            <ProtectedRoute path="/users/:userId" component={ProfileContainer}/>
         </Switch>
     </div>
 )

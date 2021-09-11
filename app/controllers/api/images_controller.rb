@@ -1,10 +1,10 @@
 class Api::ImagesController < ApplicationController
 
     def index
-        if params.has_key?(:uploader_id)
-            @images = images.where(uploader_id: params[:uploader_id])
-        else
-            @images = images.all
+
+        if params.has_key?(:user_id)
+            # debugger
+            @images = Image.where(uploader_id: params[:user_id])
         end
             render :index
     end
@@ -16,8 +16,8 @@ class Api::ImagesController < ApplicationController
 
     def create
         @image = Image.new(image_params)
-        @image.image_title = "Untitled"
-
+        @image.image_title = "Untitled" if @image.image_title === ""
+       
         if @image.save
             render 'api/images/show'
         else

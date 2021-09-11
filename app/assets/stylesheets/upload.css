@@ -87,6 +87,11 @@
     margin-left: 2%;
 }
 
+.image-preview >img {
+    height: 300px;
+    width: auto;
+}
+
 .stage2-right-side {
     position: absolute;
     top:17%;

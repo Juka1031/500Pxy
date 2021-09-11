@@ -13,6 +13,7 @@ class Upload extends React.Component {
         }
         this.handleUpload = this.handleUpload.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleCancel = this.handleCancel.bind(this)
     }
 
     handleUpload(e){
@@ -27,6 +28,12 @@ class Upload extends React.Component {
         
     }
 
+    handleCancel(e){
+        e.preventDefault();
+        this.setState({stage:1})
+        window.location.reload(false)
+    }
+
     handleSubmit(e) {
         
         e.preventDefault();
@@ -38,6 +45,7 @@ class Upload extends React.Component {
                 formData.append("image[uploaded_image]", this.state.imageFile)
             }
             this.props.upload(formData)
+            window.location.replace(`#/users/${this.state.uploaderId}/images`)
 
     }
 
@@ -82,7 +90,9 @@ class Upload extends React.Component {
                 <div className="stage2-container">
                     <h1>Upload</h1>
                     <form >
-                        <div className="preview-container">{preview}</div>
+                        <div className="preview-container">
+                            <div className = "image-preview">{preview}</div>
+                        </div>
                         <br/>
                         
                         <div className="stage2-right-side">
@@ -122,7 +132,7 @@ class Upload extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <button className= "upload-cancel-button">Cancel</button>
+                        <button className= "upload-cancel-button" onClick={this.handleCancel}>Cancel</button>
                         <button className = "upload-button" onClick={this.handleSubmit}>Upload</button>
                         <br/>
                         <br/>

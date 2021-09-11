@@ -23,8 +23,8 @@ const Header = ({loggedStatus, logout}) => {
                     </div>
                     <div className = "logged-header-right-side">
                     <ul className="avatar">
-                        <ProfileDrop>
-                             <ProfileDropItems logout={logout} />
+                        <ProfileDrop logout={logout} loggedStatus= {loggedStatus}>
+                             {/* <ProfileDropItems logout={logout} loggedStatus= {loggedStatus}/> */}
                         </ProfileDrop>
                     </ul>
                         <a href="#/upload">Upload</a>
@@ -62,43 +62,75 @@ class ProfileDrop extends React.Component {
     constructor(props) {
         super(props);
         this.state = { active: false };
-    
         this.handleClick = this.handleClick.bind(this);
     }
+
+
   
     handleClick(e) {
+
         e.preventDefault();
         this.setState({ active: !this.state.active });
+        switch(e.currentTarget.className){
+            case "drop-profile":
+                return window.location.replace(`#/users/${this.props.loggedStatus.id}/images`)
+            default:
+        }
+
+        
     }
   
     render() {
-        return (
-            <>
+        const profileLink = `#/users/${this.props.loggedStatus.id}/images`
+        if (!this.state.active)
+            return (
+                <>
+                    <li>
+                        <a href="#" onClick={this.handleClick}>
+                            <img src= {avatar}/>
+                        </a>
+                    </li>
+                    { this.state.active && this.props.children }
+                </>
+            )
+        else 
+            return(
+                <>
                 <li>
                     <a href="#" onClick={this.handleClick}>
                         <img src= {avatar}/>
                     </a>
                 </li>
-                { this.state.active && this.props.children }
+                <div className="profile-dropdown">
+                <ul>
+                    <li><a className = "drop-profile" onClick={this.handleClick}>Profile</a></li>
+                    <li><a className = "drop-galleries" onClick={this.props.logout}>Galleries</a></li>
+                    <li><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
+                    <li><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li>
+                    <li><a className = "drop-logout" onClick={this.props.logout}>Logout</a></li>
+                    </ul>  
+                </div>
             </>
-        )
+            )
+                
     }
 }
   
-const ProfileDropItems = props => {
-    return (
-        <div className="profile-dropdown">
-            <ul>
-                <li><a className = "profile-items" onClick={props.logout}>Profile</a></li>
-                <li><a className = "profile-items" onClick={props.logout}>Galleries</a></li>
-                <li><a className = "profile-items" onClick={props.logout}>Liked Photos</a></li>
-                <li><a className = "profile-items" onClick={props.logout}>Settings</a></li>
-                <li><a className = "profile-items" onClick={props.logout}>Logout</a></li>
-            </ul>
+// const ProfileDropItems = props => {
+//     
+//     return (
+//         <div className="profile-dropdown">
+//             <ul>
+//                 <li><a className = "profile-items" href={profileLink}>Profile</a></li>
+//                 <li><a className = "profile-items" onClick={props.logout}>Galleries</a></li>
+//                 <li><a className = "profile-items" onClick={props.logout}>Liked Photos</a></li>
+//                 <li><a className = "profile-items" onClick={props.logout}>Settings</a></li>
+//                 <li><a className = "profile-items" onClick={props.logout}>Logout</a></li>
+//             </ul>
             
-        </div>
-    )
-}
+//         </div>
+//     )
+// }
   
 
 
