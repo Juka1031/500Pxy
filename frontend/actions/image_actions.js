@@ -1,15 +1,23 @@
 import * as ImageAPIUtils from '../utils/image_api_util';
 
-export const RECEIVE_ALL_IMAGES = 'RECEIVE_ALL_IMAGES';
+export const RECEIVE_ALL_IMAGES = 'RECEIVE_ALL_IMAGES'; // all images, needed?
+export const RECEIVE_IMAGES = 'RECEIVE_IMAGES'; //uploader images
 export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
 export const REMOVE_IMAGE = 'REMOVE_IMAGE';
 export const RECEIVE_IMAGE_ERRORS = 'RECEIVE_IMAGE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
-const receiveImages = images => ({
-    type: RECEIVE_ALL_IMAGES,
-    images
-})
+// const receiveImages = images => ({
+//     type: RECEIVE_ALL_IMAGES,
+//     images
+// })
+
+
+const receiveImages = ({ images, users }) => ({
+    type: RECEIVE_IMAGES,
+    images,
+    users
+});
   
 const receiveImage = image => ({
     type: RECEIVE_IMAGE,
@@ -34,10 +42,17 @@ export const clearErrors = () => {
     }
 };
 
+
+
   
-export const fetchImages = () => dispatch => {
-    return ImageAPIUtils.fetchImages()
-        .then(images => {dispatch(receiveImages(images)) })
+// export const fetchImages = () => dispatch => {
+//     return ImageAPIUtils.fetchImages()
+//         .then(images => {dispatch(receiveImages(images)) })
+// }
+
+export const fetchUploaderImages = (uploaderId) => dispatch => {
+    return ImageAPIUtils.fetchUploaderImages(uploaderId)
+        .then(images => (dispatch(receiveImages(images))))
 }
   
 export const fetchImage = imageId => dispatch => {

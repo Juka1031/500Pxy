@@ -10,6 +10,7 @@ const imagesReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_ALL_IMAGES:
             return Object.assign({}, state, action.images)
+        
         case RECEIVE_IMAGE:
             return Object.assign({}, state, { [action.image.id]: action.image })
         case REMOVE_IMAGE:

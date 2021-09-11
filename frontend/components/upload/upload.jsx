@@ -61,57 +61,73 @@ class Upload extends React.Component {
             return (
                 this.state.stage === 1 ?
                 <div className="upload-stage1">
+                    <h1 className="upload-text">Upload</h1>
+                    <div className="upload-top-container">
+                        
+                        <img className = "upload-arrow" src={uparrow}/>
+                        <h2 className="upload-images-text">Upload Images</h2>
+                        <input id="upload-image" type="file" style={{ display: "none" }} onChange={this.handleUpload} className="input-file-button" accept="image/jpeg, image/png"/>
+                        <label className="upload-label-button" htmlFor="upload-image"><p>Select Image</p></label>
+                    </div>
 
-                    <h1>Upload</h1>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <img className = "upload-arrow" src={uparrow}/>
-                    <h1 className="upload-images-text">Upload Images</h1>
-                    <input id="upload-image" type="file" style={{ display: "none" }} onChange={this.handleUpload} className="input-file-button" accept="image/jpeg, image/png"/>
-                    <label className="upload-label-button" htmlFor="upload-image">Select Image</label>
+                    <div className= "upload-requirement-container">
+                        <p className = "upload-requirement-text"style={{fontWeight: 'bold'} }  >Image Requirements</p>
+                        <p>.jpg/.png only</p>
+                        <p>Max. image dimensions are 200MP/megapixels</p>
+                        <p>No NSFW content</p>
+                        <p>No watermarks, logos, or borders</p>
+                    </div>
                 </div>
                 :
-                <div>
-                    <br/>
+                <div className="stage2-container">
+                    <h1>Upload</h1>
+                    <form >
+                        <div className="preview-container">{preview}</div>
                         <br/>
-                        <br/><br/>
+                        
+                        <div className="stage2-right-side">
+                            <div className="upload-right-container"> 
+                                <label className= "upload-title-label">Title
+                                    <br/>
+                                    <input 
+                                        type="text"
+                                        value = {this.state.title}
+                                        onChange = {this.update('title')}
+                                        className = "upload-text-area"
+                                    />
+                                </label>
+                                <br/>
+                                <br/>
+                                <label className="upload-description-label">Description
+                                    <br/>
+                                    
+                                    {/* <input 
+                                        type="text"
+                                        value = {this.state.description}
+                                        onChange = {this.update('description')}
+                                        placeholder = "e.g. Fantasy night sky riddled with stars as a comet passes by"
+                                        className = "upload-text-area2"
+                                    /> */}
+                                    <textarea 
+                                    type="text"
+                                    value = {this.state.description}
+                                    onChange = {this.update('description')}
+                                    placeholder = "e.g. Fantasy night sky riddled with stars as a comet passes by"
+                                    className = "upload-text-area2"
+                                    cols="30" 
+                                    rows="10">
+                                    </textarea>
+                                </label>
+                        </div>
                         <br/>
-                        <br/><br/>
                         <br/>
                         <br/>
-                    <form>
-                    {/* <span className="error-messages">{this.renderErrors()}</span> */}
-                        {preview}
-                        <br/>
-                        <label>Title
-                            <br/>
-                            <input 
-                                type="text"
-                                value = {this.state.title}
-                                onChange = {this.update('title')}
-                            />
-                        </label>
-                        <br/>
-                        <br/>
-                        <label>Description
-                            <br/>
-                            
-                            <input 
-                                type="text"
-                                value = {this.state.description}
-                                onChange = {this.update('description')}
-                                placeholder = "e.g. Fantasy night sky riddled with stars as a comet passes by"
-                            />
-                        </label>
-                        <br/>
-                        <br/>
-                        <br/>
+                        <button className= "upload-cancel-button">Cancel</button>
                         <button className = "upload-button" onClick={this.handleSubmit}>Upload</button>
                         <br/>
                         <br/>
                         <br/>
+                        </div>
 
                     </form>
                 </div>

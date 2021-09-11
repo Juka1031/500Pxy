@@ -7,17 +7,31 @@
 .upload-stage1 {
     margin-top: 10%;
     align-items: center;
+    text-align: center;
+}
+
+.upload-stage1 h1{
+    text-align: left;
+}
+
+.upload-text {
+    margin-left: 5%;
+    margin-top: 0;
 }
 
 .upload-images-text {
     text-align: center;
 }
 
+.upload-top-container {
+    margin-top: 100px;
+}
+
 .upload-label-button {
-    display: block;
+    display: inline-block;
     color:white;
-    background-color: blue;
-    width: 200px;
+    background-color:rgb(0, 89, 255);
+    width: 160px;
     height: 50px;
     border-radius: 25px;
     font-size: 20px;
@@ -27,6 +41,126 @@
 }
 
 .upload-label-button:hover {
-    background-color: blueviolet;
+    background-color: rgb(41, 134, 247);
     cursor: pointer;
+}
+
+.upload-label-button p {
+    margin: 12px;
+}
+
+.upload-requirement-container {
+    margin-top: 50px;
+    text-align: left;
+    background-color: rgb(223, 223, 223);
+    width: 400px;
+    /* margin: auto; */
+    /* padding: 10px; */
+    margin-left:auto;
+    margin-right: auto;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.upload-requirement-container>p {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.upload-requirement-text{
+    font-size: 18px;
+}
+
+/* stage2 */
+
+.stage2-container {
+    margin-top: 90px;
+    
+    background-color: #f7f8fa;
+    height: 100vh;
+}
+
+.preview-container {
+    margin-left: 2%;
+}
+
+.stage2-right-side {
+    position: absolute;
+    top:17%;
+    left: 75%;
+    right: 0;
+    bottom: 0;
+    height: 500px;
+    border:1px solid;
+    border-color:gray;
+    color: gray;
+    width: 400px;
+    background-color: white;
+    border-radius: 5px;
+
+}
+
+.upload-right-container{
+    margin-top:20px;
+}
+
+.upload-title-label, .upload-description-label{
+    border-top:20px;
+    margin-left: 14px;
+}
+
+
+
+.upload-text-area, .upload-text-area2 {
+    margin-left: 15px;
+    width: 330px;
+
+    border-radius: 10px;
+    border:1px solid;
+    border-color: rgb(153, 153, 153);
+}
+
+.upload-text-area{
+    height: 25px;
+
+}
+
+.upload-text-area2 {
+    height:50px;
+    resize:none;
+
+}
+
+.upload-button{
+    margin-left: 30px;
+    border:none;
+    border-radius: 25px;
+    width: 130px;
+    height: 45px;
+    font-size: 18px;
+    color: white;
+    background-color: rgb(30, 101, 253);
+}
+
+.upload-button:hover {
+    background-color: rgb(87, 140, 255);
+    cursor:pointer
+}
+
+.upload-cancel-button {
+    margin-left: 70px;
+    border:none;
+    border-radius: 25px;
+    width: 130px;
+    height: 45px;
+    font-size: 18px;
+    color: rgb(30, 101, 253);
+
+   
+}
+.upload-cancel-button:hover{
+    cursor:pointer
 }

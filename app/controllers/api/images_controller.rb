@@ -1,8 +1,12 @@
 class Api::ImagesController < ApplicationController
 
     def index
-        # must get images only from said user?
-        # @images = Image.where()
+        if params.has_key?(:uploader_id)
+            @images = images.where(uploader_id: params[:uploader_id])
+        else
+            @images = images.all
+        end
+            render :index
     end
 
     def show
