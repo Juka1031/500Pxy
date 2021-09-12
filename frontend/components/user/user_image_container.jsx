@@ -7,9 +7,9 @@ class UserImageIndex extends React.Component {
         return this.props.images.map( (image, idx) => {
 
           return (
-           <li key={idx}>
-               <img className= "user-images" src={image.imageUrl}/>
-               <h5>{image.image_title}</h5>
+           <li className = "image-container" key={idx}>
+               <a href=""><img className= "user-images" src={image.imageUrl}/></a>
+               <a className="image-title"href="">{image.image_title}</a>
            </li>
           );
         })
@@ -20,7 +20,7 @@ class UserImageIndex extends React.Component {
         return (
             <div>
 
-            <ul>
+            <ul className="user-home-gallery">
                 {this.renderImage()}
             </ul>
 

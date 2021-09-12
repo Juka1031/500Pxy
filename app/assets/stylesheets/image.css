@@ -1,0 +1,16 @@
+.empty-space{
+    height: 70px;
+}
+.image-show-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 700px;
+    background-color: rgb(34, 34, 34);
+}
+
+.image-show-image {
+    max-width: 80%;
+    max-height: 80%;
+    
+}

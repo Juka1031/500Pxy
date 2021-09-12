@@ -10,13 +10,14 @@ import { Route } from 'react-router-dom';
 import LoginFormContainer from './session_form/login_form_container';
 import UploadContainer from './upload/upload_container';
 import ProfileContainer from './user/profile_container';
+import ImageShowContainer from './image/image_show_container';
 
 const App = () => (
     <div>
 
-        <Route path="/" component={Header}/>
+        <Route exact path ="/images/:imageId" component={ImageShowContainer}/>
         <Route exact path ="/" component={Splash}/>
-        
+        <Route path="/" component={Header}/>
         
         
         
