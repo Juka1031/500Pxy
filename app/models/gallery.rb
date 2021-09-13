@@ -18,6 +18,10 @@ class Gallery < ApplicationRecord
     foreign_key: :gallery_owner_id,
     class_name: :User
 
+    has_many :gallery_images,
+    foreign_key: :gallery_id,
+    class_name: :Image
+
     
 
 end

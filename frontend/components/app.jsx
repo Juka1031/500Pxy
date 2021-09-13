@@ -12,11 +12,13 @@ import UploadContainer from './upload/upload_container';
 import ProfileContainer from './user/profile_container';
 import ProfileGalleryContainer from './user/profile_gallery_container';
 import ImageShowContainer from './image/image_show_container';
+import GalleryShowContainer from './gallery/gallery_show_container';
 import CreateGalleryForm from './gallery/create_gallery_container';
 const App = () => (
     <div>
 
         <Route exact path ="/images/:imageId" component={ImageShowContainer}/>
+        <Route exact path ="/galleries/:galleryId" component={GalleryShowContainer}/>
         <Route exact path ="/" component={Splash}/>
         <Route path="/" component={Header}/>
         

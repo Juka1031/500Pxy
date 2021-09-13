@@ -18,6 +18,10 @@ class Image < ApplicationRecord
     foreign_key: :uploader_id,
     class_name: :User
 
+    belongs_to :gallery,
+    foreign_key: :gallery_id,
+    class_name: :Gallery
+
 
     has_one_attached :uploaded_image
 end
