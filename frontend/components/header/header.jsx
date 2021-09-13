@@ -74,6 +74,8 @@ class ProfileDrop extends React.Component {
         switch(e.currentTarget.className){
             case "drop-profile":
                 return window.location.replace(`#/users/${this.props.loggedStatus.id}/images`)
+            case "drop-galleries":
+                return window.location.replace(`#/users/${this.props.loggedStatus.id}/galleries`)
             default:
         }
 
@@ -104,7 +106,7 @@ class ProfileDrop extends React.Component {
                 <div className="profile-dropdown">
                 <ul>
                     <li><a className = "drop-profile" onClick={this.handleClick}>Profile</a></li>
-                    <li><a className = "drop-galleries" onClick={this.props.logout}>Galleries</a></li>
+                    <li><a className = "drop-galleries" onClick={this.handleClick}>Galleries</a></li>
                     <li><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
                     <li><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li>
                     <li><a className = "drop-logout" onClick={this.props.logout}>Logout</a></li>

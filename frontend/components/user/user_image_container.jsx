@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import React from 'react';
 class UserImageIndex extends React.Component {
 
+    
 
     renderImage(){
         return this.props.images.map( (image, idx) => {
@@ -16,17 +17,26 @@ class UserImageIndex extends React.Component {
     }
 
     render(){
+        if (this.props.images.length > 0) {
+            return (
+                <div>
 
-        return (
-            <div>
-
-            <ul className="user-home-gallery">
-                {this.renderImage()}
-            </ul>
+                <ul className="user-home-gallery">
+                    {this.renderImage()}
+                </ul>
 
 
+                </div>
+            )
+        }
+        else {
+            return(
+            <div>  
+                <h1>You current have no photos</h1>
+                <button>Upload photos</button>
             </div>
-        )
+            )
+        }
     }
 }
 

@@ -1,8 +1,8 @@
-# debugger
+
 # @images
 
 # json.extract! @image, :id, :image_title, :image_description, :uploader_id
-# # debugger
+
 # json.imageUrl url_for(@image.uploaded_image)
 
 json.array! @images do |image|

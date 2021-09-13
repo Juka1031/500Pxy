@@ -10,8 +10,9 @@ import { Route } from 'react-router-dom';
 import LoginFormContainer from './session_form/login_form_container';
 import UploadContainer from './upload/upload_container';
 import ProfileContainer from './user/profile_container';
+import ProfileGalleryContainer from './user/profile_gallery_container';
 import ImageShowContainer from './image/image_show_container';
-
+import CreateGalleryForm from './gallery/create_gallery_container';
 const App = () => (
     <div>
 
@@ -28,7 +29,9 @@ const App = () => (
             <ProtectedRoute exact path = "/upload" component={UploadContainer}/>
             <ProtectedRoute exact path = "/home" component={HomeContainer}/>
             <ProtectedRoute exact path = "/onboarding" component={EditUserForm}/>
-            <ProtectedRoute path="/users/:userId" component={ProfileContainer}/>
+            <ProtectedRoute exact path="/users/:userId/images" component={ProfileContainer}/>
+            <ProtectedRoute exact path="/users/:userId/galleries" component={ProfileGalleryContainer}/>
+            <ProtectedRoute exact path="/galleries/create"  component={CreateGalleryForm}/>
         </Switch>
     </div>
 )

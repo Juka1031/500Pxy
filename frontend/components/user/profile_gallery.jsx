@@ -1,20 +1,20 @@
 import React from 'react';
-import UserImageIndex from './user_image_container';
+import UserGalleryIndex from './user_gallery_container';
 import { Link } from "react-router-dom"
 
-class Profile extends React.Component {
+class ProfileGallery extends React.Component {
     constructor(props){
         super(props)
         this.state = {
             images : [],
-            view : "images",
+
 
         }
 
 
     }
     componentDidMount(){
-        this.props.fetchUploaderImages(this.props.currentUserId)
+        this.props.fetchOwnerGalleries(this.props.currentUserId)
     }
 
 
@@ -46,9 +46,9 @@ class Profile extends React.Component {
                 </div>
 
                 <div className="user-home-image-container">
-                    <UserImageIndex
+                    <UserGalleryIndex
                         currentUser ={this.props.user}
-                        images = {this.props.images}
+                        galleries = {this.props.galleries}
                     />
                 </div>
             </div>
@@ -57,4 +57,4 @@ class Profile extends React.Component {
     }
 }
 
-export default Profile
+export default ProfileGallery

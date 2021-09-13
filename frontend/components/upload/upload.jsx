@@ -110,14 +110,7 @@ class Upload extends React.Component {
                                 <br/>
                                 <label className="upload-description-label">Description
                                     <br/>
-                                    
-                                    {/* <input 
-                                        type="text"
-                                        value = {this.state.description}
-                                        onChange = {this.update('description')}
-                                        placeholder = "e.g. Fantasy night sky riddled with stars as a comet passes by"
-                                        className = "upload-text-area2"
-                                    /> */}
+
                                     <textarea 
                                     type="text"
                                     value = {this.state.description}

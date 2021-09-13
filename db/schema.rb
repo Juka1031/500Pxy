@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_161202) do
+ActiveRecord::Schema.define(version: 2021_09_12_052156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,13 +44,13 @@ ActiveRecord::Schema.define(version: 2021_09_09_161202) do
   end
 
   create_table "galleries", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "description"
+    t.string "gallery_title", null: false
+    t.string "gallery_description"
     t.integer "gallery_owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["gallery_owner_id"], name: "index_galleries_on_gallery_owner_id"
-    t.index ["title"], name: "index_galleries_on_title"
+    t.index ["gallery_title"], name: "index_galleries_on_gallery_title"
   end
 
   create_table "images", force: :cascade do |t|

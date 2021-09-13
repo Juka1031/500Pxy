@@ -1,5 +1,15 @@
 
 
+export const fetchUsers = () =>{
+    return(
+        $.ajax({
+            url: `/api/users`,
+            method: 'GET',
+          })
+    )
+}
+
+
 export const signup = user => ( //post user
     $.ajax({
         url: '/api/users',
