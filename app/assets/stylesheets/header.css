@@ -57,6 +57,17 @@
     justify-content:space-evenly;
 }
 
+.logged-header-left-side{
+
+    white-space: nowrap;
+    overflow:hidden;
+    line-height: 29px;
+    font-size: 18px;
+    font-weight: 600;
+    display:flex;
+    justify-content:space-evenly;
+}
+
 .header-right-side span {
     margin-top:25px;
     height: 40px;
@@ -107,3 +118,11 @@
     margin-top: 10px;
 }
 
+
+.splash-discover-text{
+    position: relative;
+    top:19px;
+    width: 0;
+    font-weight: 500;
+    font-size: 18px;
+}

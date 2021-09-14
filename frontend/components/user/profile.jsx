@@ -14,46 +14,60 @@ class Profile extends React.Component {
 
     }
     componentDidMount(){
-        this.props.fetchUploaderImages(this.props.currentUserId)
+        this.props.fetchUploaderImages(this.props.currentPageUserId)
+        this.props.fetchOwnerGalleries(this.props.currentPageUserId)
+        this.props.fetchUsers()
     }
 
 
 
     render(){
-        const firstname = this.props.user.lastName
-        const lastname = this.props.user.firstName
-        return (
-            <div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <div className="user-profile-top-background">
+        
+        // const { firstName, lastName, biography} = this.props.user
+        if(this.props.user){
+        const firstName = this.props.user.lastName
+        const lastName = this.props.user.firstName
+        const biography = this.props.user.biography
+            return (
+                <div className="profile-container">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div className="user-profile-top-background">
 
-                </div>
-                <div className="user-profile-information-container">
-                    <img className = "user-profile-avatar" src={avatar}/>
-                    <h1>{firstname} {lastname}</h1>
-                    <h1>some biography</h1>
-                    <h2>1<a>Following</a> { }Photo Likes</h2>
-                    
-                    
-                </div>
+                    </div>
+                    <div className="user-profile-information-container">
+                        <img className = "user-profile-avatar" src={avatar}/>
 
-                <div className="user-profile-image-gallery-link">
-                    <span><Link to={`images`}>Photos</Link></span> <span><Link to={`galleries`}>Galleries</Link></span>
-                </div>
+                        <h1 className="profile-name">{firstName} {lastName}</h1>
+                        <h1 className="profile-biography">testtestest{biography}</h1>
+                        <h2 className="profile-stats">1<a>Following</a> { }Photo Likes</h2>
+                        
+                        
+                    </div>
 
-                <div className="user-home-image-container">
-                    <UserImageIndex
-                        currentUser ={this.props.user}
-                        images = {this.props.images}
-                    />
+                    <div className="user-profile-image-gallery-link">
+                        <span><Link className="active-profile" to={`images`}>Photos  <span className="profile-image-count">{this.props.images.length}</span></Link></span> 
+                        <span><Link className="inactive-profile"to={`galleries`}> Galleries <span className="profile-image-count">{this.props.galleries.length}</span></Link></span>
+                    </div>
+
+                    <div className="user-home-image-container">
+                        <UserImageIndex
+                            currentUser ={this.props.user}
+                            images = {this.props.images}
+                        />
+                    </div>
                 </div>
-            </div>
-            
-        )
+                
+            )
+        }
+        else{
+            return(
+                null
+            )
+        }
     }
 }
 

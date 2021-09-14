@@ -13,8 +13,15 @@ const Header = ({loggedStatus, logout}) => {
             <div>
                 <div className="header-container">
                     <div className = "header-left-side">
-                        <span ><a href="#"><img src={logo} className="Logo"/></a></span>
-                        <span><a href="#">Discover</a></span>
+                        <span ><a href="#/home"><img src={logo} className="Logo"/></a></span>
+                        <div className = "logged-header-left-side"> 
+                        <ul className="discover-drop">
+                            <DiscoverDrop logout={logout} loggedStatus= {loggedStatus}>
+                            </DiscoverDrop>
+                            
+                        </ul>
+                        </div>
+
                         <span><a href="#">Licensing</a></span>
                         <span><a href="#">Portfolio</a></span>
                         <span><a href="#">Memberships</a></span>
@@ -101,6 +108,67 @@ class ProfileDrop extends React.Component {
                 <li>
                     <a href="#" onClick={this.handleClick}>
                         <img src= {avatar}/>
+                    </a>
+                </li>
+                <div className="profile-dropdown">
+                <ul>
+                    <li><a className = "drop-profile" onClick={this.handleClick}>Profile</a></li>
+                    <li><a className = "drop-galleries" onClick={this.handleClick}>Galleries</a></li>
+                    <li><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
+                    <li><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li>
+                    <li><a className = "drop-logout" onClick={this.props.logout}>Logout</a></li>
+                    </ul>  
+                </div>
+            </>
+            )
+                
+    }
+}
+
+
+class DiscoverDrop extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { active: false };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+
+  
+    handleClick(e) {
+
+        e.preventDefault();
+        this.setState({ active: !this.state.active });
+        switch(e.currentTarget.className){
+            case "drop-profile":
+                return window.location.replace(`#/users/${this.props.loggedStatus.id}/images`)
+            case "drop-galleries":
+                return window.location.replace(`#/users/${this.props.loggedStatus.id}/galleries`)
+            default:
+        }
+
+        
+    }
+  
+    render() {
+        const profileLink = `#/users/${this.props.loggedStatus.id}/images`
+        if (!this.state.active)
+            return (
+                <>
+                    <li>
+                        <a href="#" onClick={this.handleClick}>
+                            <span className="splash-discover-text">Discover</span>
+                        </a>
+                    </li>
+                    { this.state.active && this.props.children }
+                </>
+            )
+        else 
+            return(
+                <>
+                <li>
+                    <a href="#" onClick={this.handleClick}>
+                        <span className="splash-discover-text">Discover</span>
                     </a>
                 </li>
                 <div className="profile-dropdown">

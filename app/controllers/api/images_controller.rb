@@ -4,8 +4,11 @@ class Api::ImagesController < ApplicationController
 
         if params.has_key?(:user_id)
             @images = Image.where(uploader_id: params[:user_id])
+        else
+            @images = Image.all
         end
             # render :index test
+            # i can fetch gallery images via params
     end
 
     def show

@@ -1,0 +1,1 @@
+json.extract! @galleried_image, :id, :gallery_id, :gallery_image_id

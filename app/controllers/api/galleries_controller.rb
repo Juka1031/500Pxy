@@ -3,7 +3,6 @@ class Api::GalleriesController < ApplicationController
     def index 
         if params.has_key?(:user_id)
             @galleries = Gallery.where(gallery_owner_id: params[:user_id])
-
         end
     end
 

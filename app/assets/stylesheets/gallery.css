@@ -1,0 +1,36 @@
+.gallery-modal-screen{
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.gallery-modal-form {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 1000px;
+    height: 700px;
+    background: #fff;
+    z-index: 3;
+    border-radius: 12px;
+    overflow:scroll;
+}
+
+.blue-border {
+    border: 3px solid blue
+}
+
+.gallery-modal-images {
+    margin: 10px;
+}
+
+.user-index-images:hover {
+    cursor: pointer;
+}

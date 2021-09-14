@@ -54,3 +54,21 @@ export const fetchUploaderGalleries = (userId) => {
         method: 'GET'
     })
 }
+
+
+export const createGalleriedImage = galleriedImage => { // 
+    return $.ajax({
+        url:'/api/galleried_images',
+        method: 'POST',
+        data: galleriedImage,
+        contentType: false,
+        processData: false,
+    })
+}
+
+export const deleteGalleriedImage = (galleriedImageId) => ( //delete gallery
+    $.ajax({
+        url: `/api/galleried_images/${galleriedImageId}`,
+        method : 'DELETE'
+    })
+)

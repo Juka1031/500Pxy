@@ -8,15 +8,21 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
+export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 
 const recieveUsers = users => ({
     type:RECEIVE_USERS,
     users
 })
 
+const recieveAllUsers = users => ({
+    type:RECEIVE_ALL_USERS,
+    users
+})
+
 export const fetchUsers = () => dispatch => {
-    return ImageAPIUtils.fetchUsers()
-        .then(users => {dispatch(recieveUsers(users)) })
+    return SessionAPIUtil.fetchUsers()
+        .then(users => {dispatch(recieveAllUsers(users)) })
 }
 
 

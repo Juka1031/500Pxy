@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_12_052156) do
+ActiveRecord::Schema.define(version: 2021_09_13_184010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2021_09_12_052156) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "galleried_images", force: :cascade do |t|
+    t.integer "gallery_id", null: false
+    t.integer "gallery_image_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gallery_id", "gallery_image_id"], name: "index_galleried_images_on_gallery_id_and_gallery_image_id", unique: true
+  end
+
   create_table "galleries", force: :cascade do |t|
     t.string "gallery_title", null: false
     t.string "gallery_description"
@@ -56,11 +64,9 @@ ActiveRecord::Schema.define(version: 2021_09_12_052156) do
   create_table "images", force: :cascade do |t|
     t.string "image_title", null: false
     t.string "image_description"
-    t.integer "gallery_id"
     t.integer "uploader_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["gallery_id"], name: "index_images_on_gallery_id"
     t.index ["image_title"], name: "index_images_on_image_title"
     t.index ["uploader_id"], name: "index_images_on_uploader_id"
   end

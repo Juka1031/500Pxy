@@ -9,9 +9,10 @@ Rails.application.routes.draw do
             resources :images, only: [:index]
             resources :galleries, only: [:index]
         end
-        resources :images, only: [:create, :show, :update, :destroy]
+        resources :images, only: [:index, :create, :show, :update, :destroy]
         resources :galleries, only: [:create, :show, :update, :destroy]
         resource :session, only: [:create, :destroy]
+        resources :galleried_images, only: [:create, :destroy]
     end
 
   

@@ -14,3 +14,19 @@
     max-height: 80%;
     
 }
+.expand-button{
+    position:absolute;
+    top: 90px;
+    right: 50px
+
+}
+
+.expand-button:hover{
+    cursor: pointer;
+}
+
+.image-show-details {
+    background-color: rgb(240, 240, 240);
+    margin-left: 5%;
+    width:80%;
+}

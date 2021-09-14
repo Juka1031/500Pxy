@@ -14,16 +14,16 @@ class ProfileGallery extends React.Component {
 
     }
     componentDidMount(){
+        this.props.fetchUploaderImages(this.props.currentUserId)
         this.props.fetchOwnerGalleries(this.props.currentUserId)
     }
 
 
 
     render(){
-        const firstname = this.props.user.lastName
-        const lastname = this.props.user.firstName
+        const { firstName, lastName, biography} = this.props.user
         return (
-            <div>
+            <div className="profile-container">
                 <br/>
                 <br/>
                 <br/>
@@ -34,15 +34,16 @@ class ProfileGallery extends React.Component {
                 </div>
                 <div className="user-profile-information-container">
                     <img className = "user-profile-avatar" src={avatar}/>
-                    <h1>{firstname} {lastname}</h1>
-                    <h1>some biography</h1>
-                    <h2>1<a>Following</a> { }Photo Likes</h2>
+                    <h1 className="profile-name">{firstName} {lastName}</h1>
+                    <h1 className="profile-biography">testtestest{biography}</h1>
+                    <h2 className="profile-stats">1<a>Following</a> { }Photo Likes</h2>
                     
                     
                 </div>
 
                 <div className="user-profile-image-gallery-link">
-                    <span><Link to={`images`}>Photos</Link></span> <span><Link to={`galleries`}>Galleries</Link></span>
+                    <span><Link className="inactive-profile" to={`images`}>Photos  <span className="profile-image-count">{this.props.images.length}</span></Link></span> 
+                    <span><Link className="active-profile"to={`galleries`}> Galleries <span className="profile-image-count">{this.props.galleries.length}</span></Link></span>
                 </div>
 
                 <div className="user-home-image-container">

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import UserImageIndex from '../user/user_image_container';
 
 class Home extends React.Component {
     constructor(props){
@@ -11,6 +12,9 @@ class Home extends React.Component {
             lastName: '',
             // avatarimage
         };
+    }
+    componentDidMount(){
+        this.props.fetchImages();
     }
 
 
@@ -28,15 +32,25 @@ class Home extends React.Component {
             )
         }else{
             return(
-            <div>
+            <div className="home">
                 <div className="empty-space"></div>
-                <div>
-                    <h1>Home Feed</h1>
-                    <h3>See images and published Galleries from people you follow</h3>
+                <div className="home-header">
+                    <h2 className="home-feed-text">Home Feed</h2>
+                    <h4 className="home-feed-text2">See images and published Galleries from people you follow</h4>
+                    <h3 className="home-feed-text3"><a>Home</a></h3>
                 </div>
                 <div className="welcome-message">
-                    <h3 style={{fontWeight: "bold"}}>Welcome to 500Pxy</h3>
-                    <h3 style={{fontWeight: "normal"}}>Follow Artists to get started</h3>
+                    <h3 className="home-feed-text4" style={{fontWeight: "bold"}}>Welcome to 500Pxy</h3>
+                    <h3 className="home-feed-text5" style={{fontWeight: "normal"}}>Follow Artists to get started</h3>
+                </div>
+                <br />
+
+                <div className="home-image-feed">
+                    <UserImageIndex
+
+                    images = {this.props.images}
+                    gallery = "home"
+                    />
                 </div>
 
             </div>

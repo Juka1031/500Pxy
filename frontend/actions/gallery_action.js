@@ -60,3 +60,4 @@ export const deleteGallery = galleryId => dispatch => {
     return GalleryAPIUtils.deleteGallery(galleryId)
         .then(() => dispatch(removeGallery(galleryId)))
 }
+

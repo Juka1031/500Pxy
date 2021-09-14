@@ -18,10 +18,17 @@ class Gallery < ApplicationRecord
     foreign_key: :gallery_owner_id,
     class_name: :User
 
-    has_many :gallery_images,
+    has_many :galleried_images,
     foreign_key: :gallery_id,
-    class_name: :Image
+    class_name: :GalleriedImage
 
-    
+    has_many :images,
+    through: :galleried_images,
+    source: :image,
+    dependent: :destroy
+
+    # has_many :gallery_images,
+    # through: :gallery_owner,
+    # source: :images
 
 end
