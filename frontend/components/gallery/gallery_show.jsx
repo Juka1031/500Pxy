@@ -21,7 +21,6 @@ class GalleryShow extends React.Component {
         // this.props.fetchUploaderImages(this.props.currentUserId)
         // this.props.fetchUsers()
 
-        debugger
         
         this.props.fetchUsers()
             .then(()=>{
