@@ -29,8 +29,8 @@ class Api::ImagesController < ApplicationController
 
 
     def update
-        @image = image.find(params[:id])
-        if @image.update(image_params)
+        @image = Image.find(params[:id])
+        if @image.update!(image_params)
             render 'api/images/show'
         else
             render json: @image.errors.full_messages, status: 422
@@ -45,6 +45,6 @@ class Api::ImagesController < ApplicationController
 
     def image_params
         
-        params.require(:image).permit(:image_title, :uploader_id, :image_description, :uploaded_image)
+        params.require(:image).permit(:id, :image_title, :uploader_id, :image_description, :uploaded_image)
     end
 end

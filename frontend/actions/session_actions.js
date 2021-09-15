@@ -57,7 +57,7 @@ export const updateUser = user => dispatch => (
 
 export const getUser = (userId) => dispatch=>(
     SessionAPIUtil.getUser(userId)
-    .then((user)=>dispatch(({type:RECIEVE_USER, user})))
+    .then((user)=>dispatch(({type:RECEIVE_USER, user})))
 )
 
 

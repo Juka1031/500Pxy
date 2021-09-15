@@ -1,5 +1,6 @@
 import React from "react";
 import UserImageIndex from "../user/user_image_container";
+import GalleryImageIndex from "./gallery_image_index";
 
 class GalleryShow extends React.Component {
 
@@ -15,9 +16,21 @@ class GalleryShow extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchGallery(this.props.match.params.galleryId)
-        this.props.fetchUploaderImages(this.props.currentUserId)
+
+        // this.props.fetchGallery(this.props.match.params.galleryId)
+        // this.props.fetchUploaderImages(this.props.currentUserId)
+        // this.props.fetchUsers()
+
+        
+        
         this.props.fetchUsers()
+            .then(()=>{
+                this.props.fetchGallery(this.props.match.params.galleryId)
+                .then(()=>{
+                    this.props.fetchUploaderImages(this.props.currentUserId)
+                })
+            })
+
     }
 
     handleAddPhoto(e) {
@@ -29,29 +42,46 @@ class GalleryShow extends React.Component {
         e.preventDefault();
         this.setState({modalOpen:false})
     }
+
+    routeChange(){
+        window.location.replace(`#/galleries/${this.props.match.params.galleryId}/edit`)
+    }
+    
     
     render(){
-        if(this.props.gallery && this.props.galleryOwner && this.props.gallery.created_at &&this.props.galleryOwner[this.props.gallery.gallery_owner_id-1]) {
+        if(this.props.gallery && this.props.galleryOwner && this.props.gallery.created_at &&this.props.galleryOwner[this.props.gallery.gallery_owner_id]) {
             if(this.state.modalOpen===false){
                 let hidden
-                
+                let topBackground
+                this.props.gallery.images.length > 0 ? topBackground = this.props.gallery.images[Math.floor(Math.random()*this.props.gallery.images.length)].imageUrl: 
                 (this.props.currentUserId === this.props.gallery.gallery_owner_id) ? hidden = "visible" : hidden = "hidden"
-                    return(
+                
+                const deleteButton = this.props.galleryOwner[this.props.gallery.gallery_owner_id].id === this.props.currentUserId ?
+                <button onClick={this.routeChange.bind(this)}>edit gallery</button> : <div></div> 
+
+                const addButton =this.props.galleryOwner[this.props.gallery.gallery_owner_id].id === this.props.currentUserId ?
+                <button onClick={this.routeChange.bind(this)}>add photos</button> : <div></div> 
+                return(
                     <div>
                         <div className='empty-space'></div>
-                        <div className="gallery-show-container">
-                            
+                        <div className="gallery-show-top-background">
+                            < img src={topBackground} className="gallery-show-top-background-image"/>
                             {/* <img className="gallery-show-gallery" src={this.props.gallery.imageUrl}/> */}
                         </div>
                         <div className="gallery-show-details">
-                            <h1>{this.props.galleryOwner[this.props.gallery.gallery_owner_id-1].username}</h1>
+                            <h1>{this.props.galleryOwner[this.props.gallery.gallery_owner_id].username}</h1>
                             <h1>Uploaded: {(this.props.gallery.created_at).slice(0,10)}</h1>
+                            {deleteButton}
                             <h1>{this.props.gallery.gallery_title}</h1>
-                            <button style={{visibility: hidden }} onClick={this.handleAddPhoto}>Add Photos</button>
+                            {addButton}
                             {/* open modal that calls index on all user photos */}
                         </div>
                         <div>
-                            <h1>gallery index will go here</h1>
+                            <ul>
+                                <GalleryImageIndex
+                                    galleryImage = {this.props.gallery.images}
+                                />
+                            </ul>
                         </div>
                     </div>
                     )

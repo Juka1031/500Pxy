@@ -14,6 +14,8 @@ import ProfileGalleryContainer from './user/profile_gallery_container';
 import ImageShowContainer from './image/image_show_container';
 import GalleryShowContainer from './gallery/gallery_show_container';
 import CreateGalleryForm from './gallery/create_gallery_container';
+import ImageEditContainer from './image/image_edit_container';
+import GalleryEditContainer from './gallery/gallery_edit_container';
 const App = () => (
     <div>
 
@@ -31,6 +33,8 @@ const App = () => (
             <ProtectedRoute exact path = "/upload" component={UploadContainer}/>
             <ProtectedRoute exact path = "/home" component={HomeContainer}/>
             <ProtectedRoute exact path = "/onboarding" component={EditUserForm}/>
+            <ProtectedRoute exact path = "/images/:imageId/edit" component={ImageEditContainer}/>
+            <ProtectedRoute exact path = "/galleries/:galleryId/edit" component={GalleryEditContainer}/>
             <ProtectedRoute exact path="/users/:userId/images" component={ProfileContainer}/>
             <ProtectedRoute exact path="/users/:userId/galleries" component={ProfileGalleryContainer}/>
             <ProtectedRoute exact path="/galleries/create"  component={CreateGalleryForm}/>

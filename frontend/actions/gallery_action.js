@@ -52,8 +52,8 @@ export const createGallery = gallery => dispatch => {
 
 export const updateGallery = gallery => dispatch => {
     return GalleryAPIUtils.updateGallery(gallery)
-        .then(gallery => (dispatch(recieveGallery(gallery))),
-        errors => (dispatch(receiveErrors(errors.responseJSON))))
+        .then(gallery => (dispatch(recieveGallery(gallery))))
+
  }
 
 export const deleteGallery = galleryId => dispatch => {

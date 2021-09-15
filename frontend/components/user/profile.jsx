@@ -13,16 +13,40 @@ class Profile extends React.Component {
 
 
     }
-    componentDidMount(){
-        this.props.fetchUploaderImages(this.props.currentPageUserId)
-        this.props.fetchOwnerGalleries(this.props.currentPageUserId)
+    // componentDidMount(){
+    //     this.props.fetchOwnerGalleries(this.props.currentPageUserId)
+    //     this.props.fetchUploaderImages(this.props.currentPageUserId)
+    //     this.props.fetchUsers()
+    // }
+
+        componentDidMount(){
+        
+        
         this.props.fetchUsers()
+            .then(()=>{
+                this.props.fetchOwnerGalleries(this.props.currentPageUserId)
+                .then(()=>{
+                    this.props.fetchUploaderImages(this.props.currentPageUserId)
+                })
+            })
     }
 
 
+    // componentDidMount(){
+    //     this.props.fetchOwnerGalleries(this.props.currentPageUserId)
+    //         .then(()=>{
+    //             this.props.fetchUploaderImages(this.props.currentPageUserId)
+    //             .then(()=>{
+    //                 this.props.fetchUsers()
+    //             })
+    //         })
+        
+        
+        
+    // }
+
 
     render(){
-        
         // const { firstName, lastName, biography} = this.props.user
         if(this.props.user){
         const firstName = this.props.user.lastName
@@ -55,6 +79,7 @@ class Profile extends React.Component {
 
                     <div className="user-home-image-container">
                         <UserImageIndex
+                            gallery = "home"
                             currentUser ={this.props.user}
                             images = {this.props.images}
                         />

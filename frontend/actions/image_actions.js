@@ -72,8 +72,7 @@ export const createImage = image => dispatch => {
 
 export const updateImage = image => dispatch => {
     return ImageAPIUtils.updateImage(image)
-        .then(image => (dispatch(receiveImage(image))),
-        errors => (dispatch(receiveErrors(errors.responseJSON))))
+        .then(image => (dispatch(receiveImage(image))))
  }
 
 export const deleteImage = imageId => dispatch => {

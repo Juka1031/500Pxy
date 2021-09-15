@@ -1,4 +1,3 @@
-import { connect } from 'react-redux';
 import React from 'react';
 class UserImageIndex extends React.Component {
 
@@ -53,7 +52,7 @@ class UserImageIndex extends React.Component {
                 
                 return (
                 <li className = "image-container" key={idx}>
-                    <a href={`#/images/${image.id}`}><img className= "user-images" src={image.imageUrl}/></a>
+                    <a href={`#/images/${image.id}`}><img className= "user-images" src={image.imageUrl} loading="lazy"/></a>
                     <a className="image-title"href={`#/images/${image.id}`}>{image.image_title}</a>
                 </li>
                 );
@@ -70,15 +69,18 @@ class UserImageIndex extends React.Component {
             })
         }
     }
+    redirectUpload(){
+        window.location.replace('#/upload')
+    }
 
     render(){
         if (this.props.images.length > 0) {
             return (
-                <div>
+                <div className="image-index">
 
-                <ul className="user-home-gallery">
-                    {this.renderImage()}
-                </ul>
+                    <ul className="user-home-gallery">
+                        {this.renderImage()}
+                    </ul>
 
 
                 </div>
@@ -87,8 +89,8 @@ class UserImageIndex extends React.Component {
         else {
             return(
             <div>  
-                <h1>You current have no photos</h1>
-                <button>Upload photos</button>
+                <h1>You currently have no photos</h1>
+                <button onClick={this.redirectUpload.bind(this)}>Upload photos</button>
             </div>
             )
         }

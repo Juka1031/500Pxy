@@ -9,7 +9,7 @@ const mSTP = (state, ownProps) => {
     return {
         images: Object.values(state.entities.images),
         galleries: Object.values(state.entities.galleries),
-        user: state.entities.users[ownProps.match.params.userId-1],
+        user: state.entities.users[ownProps.match.params.userId],
         currentUserId: state.session.id, //not current user but userid of params
         currentPageUserId: ownProps.match.params.userId
     }
@@ -17,8 +17,9 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch =>{
     return {
-        fetchUploaderImages: (uploaderId)=>dispatch(fetchUploaderImages(uploaderId)),
+        
         fetchOwnerGalleries : (galleryOwnerId) => dispatch(fetchOwnerGalleries(galleryOwnerId)),
+        fetchUploaderImages: (uploaderId)=>dispatch(fetchUploaderImages(uploaderId)),
         fetchUsers: ()=> dispatch(fetchUsers())
     }
 }

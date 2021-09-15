@@ -4,17 +4,20 @@ class UserGalleryIndex extends React.Component {
 
     
 
-    // renderImage(){
-    //     return this.props.galleries.map( (gallery, idx) => {
-
-    //       return (
-    //        <li className = "image-container" key={idx}>
-    //            <a>{gallery.gallery_title}</a>
-    //            <a className="image-title"href="">{gallery.gallery_title}</a>
-    //        </li>
-    //       );
-    //     })
-    // }
+    renderGalleries(){
+        return this.props.galleries.map( (gallery, idx) => {
+        let thumbnail
+        let gallerylink = `#/galleries/${gallery.id}`
+        gallery.images.length>0 ? thumbnail = gallery.images[0].imageUrl: thumbnail = default_thumb
+        return (
+            
+           <li className = "image-container" key={idx}>
+               <a className="image-title" href={gallerylink}>{gallery.gallery_title}</a>
+               <a href={gallerylink}><img src={thumbnail} className="gallery-thumbnail" /></a>
+           </li>
+          );
+        })
+    }
 
     render(){
         const test = this.props.galleries.length
@@ -24,7 +27,7 @@ class UserGalleryIndex extends React.Component {
                     <h1>I have {test} galleries</h1>
                     <Link to="/galleries/create"><button>Create a Gallery</button></Link>
                 <ul className="user-home-gallery">
-                    {/* {this.renderGalleries()} */}
+                    {this.renderGalleries()}
                 </ul>
 
 

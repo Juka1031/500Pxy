@@ -32,13 +32,15 @@ export const createGallery = gallery => { // post gallery
 
 
 
-export const updateGallery = (gallery) => (// patch gallery
+export const updateGallery = (gallery) => {// patch gallery
+    return(
     $.ajax({
         url: `/api/galleries/${gallery.id}`,
         method: 'PATCH',
         data: { gallery }
     })
-)
+    )
+}
 
 
 export const deleteGallery = (galleryId) => ( //delete gallery

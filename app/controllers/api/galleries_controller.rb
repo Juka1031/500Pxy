@@ -22,9 +22,9 @@ class Api::GalleriesController < ApplicationController
     end
 
     def update
-        @gallery = gallery.find(params[:id])
-        if @gallery.update(gallery_params)
-            # render 'api/galleries/show'
+        @gallery = Gallery.find(params[:id])
+        if @gallery.update!(gallery_params)
+            render 'api/galleries/show'
         else
             render json: @gallery.errors.full_messages, status: 422
         end
@@ -39,6 +39,6 @@ class Api::GalleriesController < ApplicationController
 
     def gallery_params
         
-        params.require(:gallery).permit(:gallery_title, :gallery_owner_id, :gallery_description)
+        params.require(:gallery).permit(:id, :gallery_title, :gallery_owner_id, :gallery_description)
     end
 end

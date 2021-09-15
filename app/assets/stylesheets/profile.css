@@ -17,16 +17,8 @@
     width: 135px;
 }
 
-.user-images {
-    height: 300px;
-    width: auto;
-}
 
-.user-home-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+
 
 .image-title {
     font-size: 20px;
@@ -52,10 +44,7 @@
 
 }
 
-.image-container {
-    position: relative;
-    box-sizing: border-box;
-}
+
 
 .profile-name{
     text-align: center;
