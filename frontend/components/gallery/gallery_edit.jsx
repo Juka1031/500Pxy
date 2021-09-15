@@ -14,7 +14,9 @@ class GalleryForm extends React.Component {
 
     handleDelete(e) {
         e.preventDefault();
-        this.props.deleteGallery().then(() => this.props.history.push(`/users/${this.props.currentUserId}/galleries`));
+        this.props.deleteGallery()
+        .then(() => this.props.history.push(`/users/${this.props.currentUserId}/galleries`))
+        .then(()=> window.location.reload(false))
     }
     handleUpdate(e){
 

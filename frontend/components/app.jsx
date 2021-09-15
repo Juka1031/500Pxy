@@ -16,11 +16,13 @@ import GalleryShowContainer from './gallery/gallery_show_container';
 import CreateGalleryForm from './gallery/create_gallery_container';
 import ImageEditContainer from './image/image_edit_container';
 import GalleryEditContainer from './gallery/gallery_edit_container';
+import HomeGallery from './home/home_gallery_container';
 const App = () => (
     <div>
 
         <Route exact path ="/images/:imageId" component={ImageShowContainer}/>
         <Route exact path ="/galleries/:galleryId" component={GalleryShowContainer}/>
+        <Route exact path ="/galleries" component={HomeGallery}/>
         <Route exact path ="/" component={Splash}/>
         <Route path="/" component={Header}/>
         

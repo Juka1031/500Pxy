@@ -45,6 +45,17 @@ class Profile extends React.Component {
         
     // }
 
+    follow(e){
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("follow[follower_id]", this.props.currentUserId)
+        formData.append("follow[followed_id]", this.props.userPageId)
+        this.props.createFollow(formData)
+        // setTimeout(function () {
+        //     window.location.reload(false)
+        //   }, 1)
+    }
+
 
     render(){
         // const { firstName, lastName, biography} = this.props.user
@@ -68,7 +79,7 @@ class Profile extends React.Component {
                         <h1 className="profile-name">{firstName} {lastName}</h1>
                         <h1 className="profile-biography">testtestest{biography}</h1>
                         <h2 className="profile-stats">1<a>Following</a> { }Photo Likes</h2>
-                        
+                        <button onClick={this.follow.bind(this)}>Follow</button>
                         
                     </div>
 

@@ -45,6 +45,8 @@ class GalleryShow extends React.Component {
     routeChange(){
         window.location.replace(`#/galleries/${this.props.match.params.galleryId}/edit`)
     }
+
+
     
     
     render(){
@@ -59,13 +61,13 @@ class GalleryShow extends React.Component {
                 <button onClick={this.routeChange.bind(this)}>edit gallery</button> : <div></div> 
 
                 const addButton =this.props.galleryOwner[this.props.gallery.gallery_owner_id].id === this.props.currentUserId ?
-                <button onClick={this.routeChange.bind(this)}>add photos</button> : <div></div> 
+                <button onClick={this.handleAddPhoto}>add photos</button> : <div></div> 
                 return(
                     <div>
                         <div className='empty-space'></div>
                         <div className="gallery-show-top-background">
                             < img src={topBackground} className="gallery-show-top-background-image"/>
-                            {/* <img className="gallery-show-gallery" src={this.props.gallery.imageUrl}/> */}
+                            <img className="gallery-show-gallery" src={this.props.gallery.imageUrl}/>
                         </div>
                         <div className="gallery-show-details">
                             <h1>{this.props.galleryOwner[this.props.gallery.gallery_owner_id].username}</h1>
@@ -78,6 +80,7 @@ class GalleryShow extends React.Component {
                         <div>
                             <ul>
                                 <GalleryImageIndex
+                                    deleteGalleriedImage = {this.props.deleteGalleriedImage}
                                     galleryImage = {this.props.gallery.images}
                                 />
                             </ul>
@@ -85,9 +88,17 @@ class GalleryShow extends React.Component {
                     </div>
                     )
                 }else{ 
+                let topBackground
+                let hidden
+                this.props.gallery.images.length > 0 ? topBackground = this.props.gallery.images[Math.floor(Math.random()*this.props.gallery.images.length)].imageUrl: 
+                (this.props.currentUserId === this.props.gallery.gallery_owner_id) ? hidden = "visible" : hidden = "hidden"
                 return(
+                    
                     <div>
                         <div className='empty-space'></div>
+                        <div className="gallery-show-top-background" >
+                            < img src={topBackground} className="gallery-show-top-background-image"/>
+                        </div>
                         <div className="gallery-modal-screen" onClick={this.closeModal}>  
                         </div>
                         <div className="gallery-modal-form">

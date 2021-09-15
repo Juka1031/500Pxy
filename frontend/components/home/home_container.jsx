@@ -9,13 +9,13 @@ const mSTP = ({ session, entities: { users, images } }) => {
       currentUser: users[session.id],
       images: Object.values(images),
     };
-  };
+};
 
-  const mDTP = dispatch => ({
+const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
 
     fetchImages: () => dispatch(fetchImages())
-  });
+});
   
-  export default connect(mSTP,mDTP)(Home);
+export default connect(mSTP,mDTP)(Home);
   

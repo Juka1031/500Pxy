@@ -29,6 +29,25 @@ class User < ApplicationRecord
     foreign_key: :gallery_owner_id,
     class_name: :Gallery
 
+    has_many :follow_list,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
+    has_many :follower_list,
+    foreign_key: :followed_id,
+    class_name: :Follow
+
+    has_many :followers, 
+    through: :follower_list,
+    source: :follower,
+    dependent: :destroy
+
+    has_many :follows,
+    through: :follow_list,
+    source: :followee,
+    dependent: :destroy
+
+
     attr_reader :password
     after_initialize :ensure_session_token
 

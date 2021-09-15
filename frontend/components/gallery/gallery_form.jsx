@@ -25,12 +25,14 @@ class GalleryForm extends React.Component {
     }
 
     handleSubmit(e) {
+        e.preventDefault();
         const formData = new FormData();
         formData.append("gallery[gallery_title]", this.state.title)
         formData.append("gallery[gallery_description]", this.state.description)
         formData.append("gallery[gallery_owner_id]", this.state.galleryOwnerId)
         this.props.createGallery(formData)
         .then(()=>{window.location.replace(`#/users/${this.state.galleryOwnerId}/galleries`)})
+        .then(()=>{window.location.reload(true)})
         //needs to redirect to said galleries showpage
         // window.location.replace(`#/users/${this.state.galleryOwnerId}/galleries`)
     }

@@ -23,3 +23,5 @@ const galleriedImageReducer = (state = {}, action) => {
 };
   
 export default galleriedImageReducer;
+
+

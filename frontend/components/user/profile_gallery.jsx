@@ -14,10 +14,9 @@ class ProfileGallery extends React.Component {
 
     }
     componentDidMount(){
-        
-        this.props.fetchUploaderImages(this.props.currentUserId)
+        this.props.fetchOwnerGalleries(this.props.currentUserId) 
             .then(()=>{
-                this.props.fetchOwnerGalleries(this.props.currentUserId) 
+                this.props.fetchUploaderImages(this.props.currentUserId)
             })
     }
 

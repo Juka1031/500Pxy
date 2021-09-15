@@ -113,7 +113,7 @@ class ProfileDrop extends React.Component {
                 <div className="profile-dropdown">
                 <ul>
                     <li><a className = "drop-profile" onClick={this.handleClick}>Profile</a></li>
-                    <li><a className = "drop-galleries" onClick={this.handleClick}>Galleries</a></li>
+                    <li><a className = "drop-galleries" onClick={this.handleClick}>My Galleries</a></li>
                     <li><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
                     <li><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li>
                     <li><a className = "drop-logout" onClick={this.props.logout}>Logout</a></li>
@@ -141,9 +141,9 @@ class DiscoverDrop extends React.Component {
         this.setState({ active: !this.state.active });
         switch(e.currentTarget.className){
             case "drop-profile":
-                return window.location.replace(`#/users/${this.props.loggedStatus.id}/images`)
+                return window.location.replace(`#/home`)
             case "drop-galleries":
-                return window.location.replace(`#/users/${this.props.loggedStatus.id}/galleries`)
+                return window.location.replace(`#/galleries`)
             default:
         }
 
@@ -172,12 +172,11 @@ class DiscoverDrop extends React.Component {
                     </a>
                 </li>
                 <div className="profile-dropdown">
-                <ul>
-                    <li><a className = "drop-profile" onClick={this.handleClick}>Profile</a></li>
-                    <li><a className = "drop-galleries" onClick={this.handleClick}>Galleries</a></li>
-                    <li><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
-                    <li><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li>
-                    <li><a className = "drop-logout" onClick={this.props.logout}>Logout</a></li>
+                    <ul>
+                        <li><a className = "drop-profile" onClick={this.handleClick}>Home</a></li>
+                        <li><a className = "drop-galleries" onClick={this.handleClick}>Galleries</a></li>
+                        <li><a className = "drop-fresh" onClick={this.handleClick}>Fresh Photos</a></li>
+                        <li><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
                     </ul>  
                 </div>
             </>
@@ -205,3 +204,5 @@ class DiscoverDrop extends React.Component {
 
 
 export default Header;
+
+

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import GalleryShow from './gallery_show';
 import { fetchGallery } from '../../actions/gallery_action';
 import { fetchUploaderImages } from '../../actions/image_actions';
-import { createGalleriedImage } from '../../actions/galleried_image_actions';
+import { createGalleriedImage, deleteGalleriedImage } from '../../actions/galleried_image_actions';
 import { fetchUsers } from '../../actions/session_actions';
 
 
@@ -22,6 +22,7 @@ const mDTP = dispatch => {
         fetchGallery: galleryId => dispatch(fetchGallery(galleryId)),
         fetchUploaderImages: (uploaderId)=>dispatch(fetchUploaderImages(uploaderId)),
         createGalleriedImage: (galleriedImage)=>dispatch(createGalleriedImage(galleriedImage)),
+        deleteGalleriedImage: (galleriedImageId)=>dispatch(deleteGalleriedImage(galleriedImageId)),
         fetchUsers: () => dispatch(fetchUsers())
     }
 }

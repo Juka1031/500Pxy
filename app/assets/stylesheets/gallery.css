@@ -44,12 +44,18 @@
     height:370px;
     background-color: #222222;
     overflow: hidden;
+
+
 }
 
 .gallery-show-top-background-image {
-
+    
     width: 100%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin:auto;
+}
+
+
+.delete-image-from-gallery{
+    position: absolute;
 }
