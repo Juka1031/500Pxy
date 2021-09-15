@@ -25,7 +25,7 @@ class UserGalleryIndex extends React.Component {
             return (
                 <div>
                     <h1>I have {test} galleries</h1>
-                    <Link to="/galleries/create"><button>Create a Gallery</button></Link>
+                    <Link to="/create/gallery"><button>Create a Gallery</button></Link>
                 <ul className="user-home-gallery">
                     {this.renderGalleries()}
                 </ul>
@@ -38,7 +38,7 @@ class UserGalleryIndex extends React.Component {
             return(
             <div>  
                 <h1>You currently have no galleries</h1>
-                <Link to="/galleries/create"><button>Create a Gallery</button></Link>
+                <Link to="/create/gallery"><button>Create a Gallery</button></Link>
             </div>
             )
         }

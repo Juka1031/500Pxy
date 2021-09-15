@@ -12,6 +12,7 @@ const mSTP = ( { entities: {users}, session}) => {
   };
 
   const mDTP = dispatch => ({
+      
     createGallery: (gallery) => dispatch(createGallery(gallery)),
     
 
