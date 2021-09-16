@@ -61,3 +61,99 @@
     margin-left: 60px;
     margin-right: 50px;
 }
+
+
+
+
+/* home gallery */
+
+.user-home-gallery-2{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    padding-left: 70px;
+    padding: 50px;
+}
+
+.gallery-home-container {
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid rgb(240, 240, 240);
+}
+
+.gallery-home-container:hover{
+    box-shadow: 3px 3px 3px rgb(194, 194, 194);
+}
+
+.gallery-home-description{
+    height:80px;
+    text-align: center;
+    color: #525558;
+    font-size: 25px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.curated-by {
+    font-size: 14px;
+    margin:0px;
+    color:#b9c1c7;
+}
+
+.top-message, .home-links{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-left: 50px;
+}
+.featured-galleries-text{
+    color:black;
+    font-weight: 700;
+    font-size:35px;
+}
+
+.browse-galleries-text{
+    font-weight: 600;
+    color:#525558;
+}
+
+.home-links{
+    height: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:#525558;
+    padding-left: 50px;
+    margin-left: 0px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    width:100%;
+    /* display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 10px */
+}
+
+.home-link-text {
+    display: inline-block;
+    margin-right: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #71767a;
+
+}
+
+.home-link-text2 {
+    display: inline-block;
+    margin-right: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #71767a;
+
+}
+
+.home-link-text-active {
+    display: inline-block;
+    margin-right: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #0099e5;
+    border-bottom: #0099e5 3px solid;
+    padding-bottom: 31px;
+
+}
+

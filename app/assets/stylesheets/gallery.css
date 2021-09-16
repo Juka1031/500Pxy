@@ -59,3 +59,7 @@
 .delete-image-from-gallery{
     position: absolute;
 }
+
+.gallery-show-details{
+    text-align: center;
+}

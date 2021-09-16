@@ -41,44 +41,13 @@ class ImageShow extends React.Component {
         window.location.replace(`#/images/${this.props.match.params.imageId}/edit`)
     }
     
-    // render(){
-    //     const control = this.state.fullscreen ? min : max
-    //     if(this.props.image && this.props.uploader && this.props.image.created_at && this.props.uploader[this.props.image.uploader_id])
-        
-    //      {
-    //         return(
-    //         <div>
-    //             <div className='empty-space'></div>
-    //             <div className="image-show-container" id='fullscreen'>
-                   
-    //                 <img className="image-show-image" src={this.props.image.imageUrl}/>
-    //                  <img className="expand-button"onClick={this.openFullscreen.bind(this)} src={control}/>
-                    
-    //             </div>
-                
-    //             <div className="image-show-details">
-                    
-    //                 <h1>{this.props.uploader[this.props.image.uploader_id].username}</h1>
-    //                 <button onClick={this.routeChange.bind(this)}></button>
-    //                 <h1>Uploaded: {(this.props.image.created_at).slice(0,10)}</h1>
-    //                 <h1>{this.props.image.image_title}</h1>
-    //                 <h1>{this.props.image.image_description}</h1>
-    //             </div>
-    //         </div>
-    //         )
-    //     }
-    //     else {
-    //         return(
-    //         null
-    //         )
-    //     }
-    // }
+ 
 
     render(){
         const control = this.state.fullscreen ? min : max
        
         const deleteButton = this.props.uploader[this.props.image.uploader_id].id === this.props.currentUserId ?
-        <button onClick={this.routeChange.bind(this)}></button> : <div></div>
+        <button className="edit-button" onClick={this.routeChange.bind(this)}>...</button> : <div></div>
             return(
             <div>
                 <div className='empty-space'></div>
@@ -90,12 +59,22 @@ class ImageShow extends React.Component {
                 </div>
                 
                 <div className="image-show-details">
+                {deleteButton}
+                    <div className="image-show-top">
+                        <img src={avatar}/>
+                        <div>
+                            <h1 className="image-show-title">{this.props.image.image_title}</h1>
+                            <h1 className="uploaded-by">by <span className="show-username">{this.props.uploader[this.props.image.uploader_id].username}</span></h1>
+                        </div>
+                       
                     
-                    <h1>{this.props.uploader[this.props.image.uploader_id].username}</h1>
-                    {deleteButton}
-                    <h1>Uploaded: {(this.props.image.created_at).slice(0,10)}</h1>
-                    <h1>{this.props.image.image_title}</h1>
-                    <h1>{this.props.image.image_description}</h1>
+                    </div>
+                    
+                    
+                    
+                    <h1 className="uploaded-at">Uploaded: <span className="date-uploaded">{(this.props.image.created_at).slice(0,10)}</span></h1>
+                    
+                    <h1 className="detail-text">{this.props.image.image_description}</h1>
                 </div>
             </div>
             )

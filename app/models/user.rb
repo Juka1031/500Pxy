@@ -47,6 +47,8 @@ class User < ApplicationRecord
     source: :followee,
     dependent: :destroy
 
+    has_one_attached :avatar
+
 
     attr_reader :password
     after_initialize :ensure_session_token

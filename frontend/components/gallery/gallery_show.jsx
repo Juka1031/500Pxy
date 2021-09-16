@@ -51,6 +51,7 @@ class GalleryShow extends React.Component {
     
     render(){
         if(this.props.gallery && this.props.galleryOwner && this.props.gallery.created_at &&this.props.galleryOwner[this.props.gallery.gallery_owner_id]) {
+            
             if(this.state.modalOpen===false){
                 let hidden
                 let topBackground
@@ -70,10 +71,11 @@ class GalleryShow extends React.Component {
                             <img className="gallery-show-gallery" src={this.props.gallery.imageUrl}/>
                         </div>
                         <div className="gallery-show-details">
-                            <h1>{this.props.galleryOwner[this.props.gallery.gallery_owner_id].username}</h1>
-                            <h1>Uploaded: {(this.props.gallery.created_at).slice(0,10)}</h1>
-                            {deleteButton}
                             <h1>{this.props.gallery.gallery_title}</h1>
+                            <h1>{this.props.gallery.gallery_description}</h1>
+                            <h1>Curated by: {this.props.galleryOwner[this.props.gallery.gallery_owner_id].username}</h1>
+                            {deleteButton}
+                            
                             {addButton}
                             {/* open modal that calls index on all user photos */}
                         </div>

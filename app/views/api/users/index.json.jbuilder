@@ -6,6 +6,6 @@
 
 @users.each do |user|
     json.set! user.id do
-        json.extract! user, :id, :username, :firstName, :lastName
+        json.extract! user, :id, :username, :firstName, :lastName, :followers, :follows
     end
 end

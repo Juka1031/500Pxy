@@ -51,9 +51,9 @@ class Profile extends React.Component {
         formData.append("follow[follower_id]", this.props.currentUserId)
         formData.append("follow[followed_id]", this.props.userPageId)
         this.props.createFollow(formData)
-        // setTimeout(function () {
-        //     window.location.reload(false)
-        //   }, 1)
+        setTimeout(function () {
+            window.location.reload(false)
+          }, 1)
     }
 
 

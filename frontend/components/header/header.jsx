@@ -34,8 +34,11 @@ const Header = ({loggedStatus, logout}) => {
                              {/* <ProfileDropItems logout={logout} loggedStatus= {loggedStatus}/> */}
                         </ProfileDrop>
                     </ul>
-                        <a href="#/upload">Upload</a>
-                        <button onClick={logout}><Link to="/">Logout</Link></button>
+                        <button className="upload-button-header">
+                            <a href="#/upload">
+                            <img className ="up-arrow-2" src={up_arrow_2}/>
+                            <span className="upload-text">Upload</span> </a></button>
+                        {/* <button onClick={logout}><Link to="/">Logout</Link></button> */}
 
                     </div>
                 </div>
@@ -96,7 +99,7 @@ class ProfileDrop extends React.Component {
                 <>
                     <li>
                         <a href="#" onClick={this.handleClick}>
-                            <img src= {avatar}/>
+                            <img className="header-avatar" src= {avatar}/>
                         </a>
                     </li>
                     { this.state.active && this.props.children }
@@ -107,16 +110,16 @@ class ProfileDrop extends React.Component {
                 <>
                 <li>
                     <a href="#" onClick={this.handleClick}>
-                        <img src= {avatar}/>
+                        <img className="header-avatar" src= {avatar}/>
                     </a>
                 </li>
                 <div className="profile-dropdown">
                 <ul>
-                    <li><a className = "drop-profile" onClick={this.handleClick}>Profile</a></li>
-                    <li><a className = "drop-galleries" onClick={this.handleClick}>My Galleries</a></li>
-                    <li><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
-                    <li><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li>
-                    <li><a className = "drop-logout" onClick={this.props.logout}>Logout</a></li>
+                    <li className="list-pointer"><a className = "drop-profile" onClick={this.handleClick}>Profile</a></li>
+                    <li className="list-pointer"><a className = "drop-galleries" onClick={this.handleClick}>My Galleries</a></li>
+                    <li className="list-pointer"><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
+                    <li className="list-pointer"><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li>
+                    <li className="list-pointer"><a className = "drop-logout" onClick={this.props.logout}>Logout</a></li>
                     </ul>  
                 </div>
             </>
@@ -173,10 +176,10 @@ class DiscoverDrop extends React.Component {
                 </li>
                 <div className="profile-dropdown">
                     <ul>
-                        <li><a className = "drop-profile" onClick={this.handleClick}>Home</a></li>
-                        <li><a className = "drop-galleries" onClick={this.handleClick}>Galleries</a></li>
-                        <li><a className = "drop-fresh" onClick={this.handleClick}>Fresh Photos</a></li>
-                        <li><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
+                        <li className="list-pointer"><a className = "drop-profile" onClick={this.handleClick}>Home</a></li>
+                        <li className="list-pointer"><a className = "drop-galleries" onClick={this.handleClick}>Galleries</a></li>
+                        <li className="list-pointer"><a className = "drop-fresh" onClick={this.handleClick}>Fresh Photos</a></li>
+                        <li className="list-pointer"><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
                     </ul>  
                 </div>
             </>

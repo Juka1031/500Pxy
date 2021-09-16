@@ -13,7 +13,8 @@ const mSTP = (state, ownProps) => {
         user: state.entities.users[ownProps.match.params.userId],
         currentUserId: state.session.id, //not current user but userid of params
         currentPageUserId: ownProps.match.params.userId,
-        userPageId: ownProps.match.params.userId
+        userPageId: ownProps.match.params.userId,
+        currentUser: state.entities.users[state.session.id]
     }
 };
 
