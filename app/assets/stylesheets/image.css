@@ -76,7 +76,7 @@
 }
 
 .edit-button:hover {
-    background-color: rgba(232, 232, 232);
+    background-color: rgb(232, 232, 232);
     width:30px;
     height:30px;
     float:left
@@ -136,7 +136,7 @@
 }
 
 .follow-heart:hover{
-    background-color: rgba(232, 232, 232);
+    background-color: rgb(232, 232, 232);
     float:left
 }
 
