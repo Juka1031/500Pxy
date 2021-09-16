@@ -57,6 +57,26 @@ class UserImageIndex extends React.Component {
                 </li>
                 );
             }).sort(() => Math.random() - 0.5);
+        }else if(this.props.gallery ==="fresh"){
+            return this.props.images.map( (image, idx) => {
+                
+                return (
+                <li className = "image-container" key={idx}>
+                    <a href={`#/images/${image.id}`}><img className= "user-images" src={image.imageUrl} loading="lazy"/></a>
+                    <a className="image-title"href={`#/images/${image.id}`}>{image.image_title}</a>
+                </li>
+                );
+            }).reverse();
+        }else if(this.props.gallery ==="popular"){
+            return this.props.images.map( (image, idx) => {
+                
+                return (
+                <li className = "image-container" key={idx}>
+                    <a href={`#/images/${image.id}`}><img className= "user-images" src={image.imageUrl} loading="lazy"/></a>
+                    <a className="image-title"href={`#/images/${image.id}`}>{image.image_title}</a>
+                </li>
+                );
+            }).sort(() => Math.random() - 0.5);
         }else {
             return this.props.images.map( (image, idx) => {
 
@@ -86,13 +106,18 @@ class UserImageIndex extends React.Component {
                 </div>
             )
         }
-        else {
+        else if(this.props.gallery ==="home"){
             return(
             <div>  
-                <h1>You currently have no photos</h1>
-                <button onClick={this.redirectUpload.bind(this)}>Upload photos</button>
+                <div className="profile-upload-button-2-container">
+                    <h1 className="profile-upload-text">You currently have no photos</h1>
+                    <h1 className="profile-upload-text-2"> Add some images to populate your page!</h1>
+                    <button className="profile-upload-button-2" onClick={this.redirectUpload.bind(this) }>Upload photos</button>
+                </div>
             </div>
             )
+        }else {
+            return <div></div>
         }
     }
 }

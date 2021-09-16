@@ -13,7 +13,7 @@ Rails.application.routes.draw do
         resources :galleries, only: [:index, :create, :show, :update, :destroy]
         resources :follows, only: [:create, :destroy, :show]
         resource :session, only: [:create, :destroy]
-        resources :galleried_images, only: [:create, :destroy]
+        resources :galleried_images, only: [:index, :create, :destroy]
     end
 
   

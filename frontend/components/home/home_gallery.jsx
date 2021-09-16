@@ -42,10 +42,10 @@ class HomeGallery extends React.Component {
                     <h3 className="browse-galleries-text">Browse through some of the best galleries on 500pxy.</h3>
                 </div>
                 <div className="home-links">
-                    <span className="home-link-text"><a>POPULAR</a></span>
-                    <span className="home-link-text2"><a>UPCOMING</a></span>
-                    <span className="home-link-text"><a>FRESH</a></span>
-                    <span className="home-link-text-active"><a>GALLERIES</a></span>
+                    <span className="home-link-text"><a href="#/popular" className="home-visited">POPULAR</a></span>
+                    {/* <span className="home-link-text2"><a className="home-visited">UPCOMING</a></span> */}
+                    <span className="home-link-text"><a href="#/fresh"className="home-visited">FRESH</a></span>
+                    <span className="home-link-text-active"><a href="#/galleries" className="home-visited">GALLERIES</a></span>
                 </div>
                 <div className="home-gallery-container">
                     <ul className="user-home-gallery-2">

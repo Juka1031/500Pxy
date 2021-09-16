@@ -117,8 +117,8 @@ class ProfileDrop extends React.Component {
                 <ul>
                     <li className="list-pointer"><a className = "drop-profile" onClick={this.handleClick}>Profile</a></li>
                     <li className="list-pointer"><a className = "drop-galleries" onClick={this.handleClick}>My Galleries</a></li>
-                    <li className="list-pointer"><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
-                    <li className="list-pointer"><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li>
+                    {/* <li className="list-pointer"><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li> */}
+                    {/* <li className="list-pointer"><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li> */}
                     <li className="list-pointer"><a className = "drop-logout" onClick={this.props.logout}>Logout</a></li>
                     </ul>  
                 </div>
@@ -147,6 +147,10 @@ class DiscoverDrop extends React.Component {
                 return window.location.replace(`#/home`)
             case "drop-galleries":
                 return window.location.replace(`#/galleries`)
+            case "drop-fresh":
+                return window.location.replace(`#/fresh`)
+            case "drop-popular":
+                return window.location.replace(`#/popular`)
             default:
         }
 
@@ -177,9 +181,10 @@ class DiscoverDrop extends React.Component {
                 <div className="profile-dropdown">
                     <ul>
                         <li className="list-pointer"><a className = "drop-profile" onClick={this.handleClick}>Home</a></li>
+                        <li className="list-pointer"><a className = "drop-popular" onClick={this.handleClick}>Popular</a></li>
+                        <li className="list-pointer"><a className = "drop-fresh" onClick={this.handleClick}>Fresh Images</a></li>
                         <li className="list-pointer"><a className = "drop-galleries" onClick={this.handleClick}>Galleries</a></li>
-                        <li className="list-pointer"><a className = "drop-fresh" onClick={this.handleClick}>Fresh Photos</a></li>
-                        <li className="list-pointer"><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li>
+                        {/* <li className="list-pointer"><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li> */}
                     </ul>  
                 </div>
             </>

@@ -17,12 +17,17 @@ import CreateGalleryForm from './gallery/create_gallery_container';
 import ImageEditContainer from './image/image_edit_container';
 import GalleryEditContainer from './gallery/gallery_edit_container';
 import HomeGallery from './home/home_gallery_container';
+import HomeFresh from './home/home_fresh_container';
+import HomePopular from './home/home_popular_container';
+import ProfileEdit from './user/profile_edit_container';
 const App = () => (
     <div>
 
         <Route exact path ="/images/:imageId" component={ImageShowContainer}/>
         <Route exact path ="/galleries/:galleryId" component={GalleryShowContainer}/>
         <Route exact path ="/galleries" component={HomeGallery}/>
+        <Route exact path ="/fresh" component={HomeFresh}/>
+        <Route exact path ="/popular" component={HomePopular}/>
         <Route exact path ="/" component={Splash}/>
         <Route path="/" component={Header}/>
         
@@ -35,6 +40,7 @@ const App = () => (
             <ProtectedRoute exact path = "/upload" component={UploadContainer}/>
             <ProtectedRoute exact path = "/home" component={HomeContainer}/>
             <ProtectedRoute exact path = "/onboarding" component={EditUserForm}/>
+            <ProtectedRoute exact path = "/profile/edit" component={ProfileEdit}/>
             <ProtectedRoute exact path = "/images/:imageId/edit" component={ImageEditContainer}/>
             <ProtectedRoute exact path = "/galleries/:galleryId/edit" component={GalleryEditContainer}/>
             <ProtectedRoute exact path="/users/:userId/images" component={ProfileContainer}/>

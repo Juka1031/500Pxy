@@ -49,6 +49,8 @@ class User < ApplicationRecord
 
     has_one_attached :avatar
 
+    has_one_attached :cover
+
 
     attr_reader :password
     after_initialize :ensure_session_token

@@ -26,10 +26,11 @@
 }
 
 .image-show-details {
+    
     background-color: rgb(255, 255, 255);
     margin-left: 5%;
-    width:80%;
-    
+    width:55%;
+    padding-top: 20px;
 }
 
 /* image edit */
@@ -71,12 +72,14 @@
     text-align: center;
     width:30px;
     height:30px;
+    float:left
 }
 
 .edit-button:hover {
-    background-color: gray;
+    background-color: rgba(232, 232, 232);
     width:30px;
     height:30px;
+    float:left
 }
 
 
@@ -119,4 +122,80 @@
 .show-username{
     font-size: 15px;
     font-weight: 700;
+}
+
+.button-container{
+    height:30px
+}
+
+.follow-heart{
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    float:left
+}
+
+.follow-heart:hover{
+    background-color: rgba(232, 232, 232);
+    float:left
+}
+
+.image-show-bottom{
+    display: flex;
+    background-color: rgb(247, 247, 247);
+
+}
+
+.comment-box{
+    
+    width: 25%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.coming-soon {
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: rgb(170, 170, 170);
+}
+
+.comment-input {
+    display:block;
+    margin : 0 auto;
+    border-radius: 5px;
+    height:25px;
+    width:300px;
+    border: 1px solid rgb(170, 170, 170);
+}
+
+.featured-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.featured-image-cont{
+    position: relative;
+    box-sizing: border-box;
+    flex-grow:1 ;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgb(231, 231, 231);
+}
+.user-images-featured{
+    width:auto;
+    max-width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.featured-cont{
+    height:400px;
+    overflow: auto;
+}
+
+.show-featured-image-text{
+    font-size: 25px;
 }

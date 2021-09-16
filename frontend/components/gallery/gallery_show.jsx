@@ -26,7 +26,11 @@ class GalleryShow extends React.Component {
             .then(()=>{
                 this.props.fetchGallery(this.props.match.params.galleryId)
                 .then(()=>{
-                    this.props.fetchUploaderImages(this.props.currentUserId)
+                    this.props.fetchGalleriedImages()
+                    .then(()=>{
+                        this.props.fetchUploaderImages(this.props.currentUserId)
+                    })
+                    
                 })
             })
 
@@ -82,8 +86,10 @@ class GalleryShow extends React.Component {
                         <div>
                             <ul>
                                 <GalleryImageIndex
+                                    galleriedImages = {this.props.galleriedImages}
                                     deleteGalleriedImage = {this.props.deleteGalleriedImage}
                                     galleryImage = {this.props.gallery.images}
+                                    gallery = {this.props.gallery}
                                 />
                             </ul>
                         </div>

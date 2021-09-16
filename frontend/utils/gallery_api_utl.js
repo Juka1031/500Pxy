@@ -74,3 +74,11 @@ export const deleteGalleriedImage = (galleriedImageId) => ( //delete gallery
         method : 'DELETE'
     })
 )
+
+
+export const fetchGalleriedImages = () => (
+    $.ajax({
+      url: `/api/galleried_images`,
+      method: 'GET',
+    })
+  );

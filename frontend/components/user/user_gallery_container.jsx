@@ -18,17 +18,25 @@ class UserGalleryIndex extends React.Component {
           );
         })
     }
+    com
 
     render(){
         const test = this.props.galleries.length
         if (this.props.galleries.length > 0) {
             return (
                 <div>
-                    <h1>I have {test} galleries</h1>
-                    <Link to="/create/gallery"><button>Create a Gallery</button></Link>
-                <ul className="user-home-gallery">
-                    {this.renderGalleries()}
-                </ul>
+                    
+                    
+                    <ul className="user-home-gallery">
+                        <li className="create-gallery-div">
+                            <div ><Link to="/create/gallery">
+                                <img className="curate-image" src={curate}/><br/>
+                                <span className="curate-message">Curate images using Galleries</span>
+                                <button className="create-button-gallery">Create a Gallery</button></Link>
+                                
+                            </div></li>
+                        {this.renderGalleries()}
+                    </ul>
 
 
                 </div>

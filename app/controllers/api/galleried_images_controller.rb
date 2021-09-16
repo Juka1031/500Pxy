@@ -1,6 +1,9 @@
 class Api::GalleriedImagesController < ApplicationController
 
-    
+    def index
+            @galleried_images = GalleriedImage.all
+            render 'api/galleried_images/index'
+    end
 
     def create
         @galleried_image = GalleriedImage.new(galleried_images_params)
@@ -12,7 +15,7 @@ class Api::GalleriedImagesController < ApplicationController
     end
 
     def destroy
-        @galleried_image= GalleriedImage.find_by(id: params[:id])
+        @galleried_image= GalleriedImage.find_by(gallery_id: params[:gallery_id], gallery_image_id: params[:gallery_image_id])
         if @galleried_image && @galleried_image.delete
         end
     end

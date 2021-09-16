@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ImageShow from './image_show';
-import { fetchImage } from '../../actions/image_actions';
+import { fetchImage, fetchImages} from '../../actions/image_actions';
 import { fetchUsers, getUser } from '../../actions/session_actions';
 import React from 'react';
 
@@ -14,7 +14,7 @@ class ImageShowContainer extends React.Component {
     componentDidMount() {
         this.props.fetchUsers()
             .then(()=>{
-                this.props.fetchImage(this.props.match.params.imageId)
+                this.props.fetchImages()
         })
       
       
@@ -43,8 +43,10 @@ class ImageShowContainer extends React.Component {
 
 
 const mSTP = (state, ownProps) => {
+
     return {
         image: state.entities.images[ownProps.match.params.imageId],
+        images: Object.values(state.entities.images),
         uploader: state.entities.users,
         currentUserId: state.session.id
     }
@@ -52,7 +54,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => {
     return {
-        fetchImage: imageId => dispatch(fetchImage(imageId)),
+        fetchImages: () => dispatch(fetchImages()),
         fetchUsers: () => dispatch(fetchUsers()),
         getUser: (userId) =>dispatch(getUser(userId))
     }
