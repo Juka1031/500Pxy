@@ -9,8 +9,8 @@ const galleriesReducer = (state = {}, action) => {
   
     switch (action.type) {
         case RECIEVE_GALLERIES:
-            return Object.assign({}, state, action.galleries)
-            
+            // return Object.assign({}, state, action.galleries)
+            return action.galleries;
         case RECEIVE_GALLERY:
             return Object.assign({}, state, { [action.gallery.id]: action.gallery })
         case REMOVE_GALLERY:
