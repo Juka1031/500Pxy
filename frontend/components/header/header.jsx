@@ -92,6 +92,7 @@ class ProfileDrop extends React.Component {
                 return window.location.replace(`#/users/${this.props.loggedStatus.id}/images`)
             case "drop-galleries":
                 return window.location.replace(`#/users/${this.props.loggedStatus.id}/galleries`)
+            
             default:
         }
 
@@ -125,7 +126,7 @@ class ProfileDrop extends React.Component {
                 <ul>
                     <li className="list-pointer"><a className = "drop-profile" onClick={this.handleClick}>Profile</a></li>
                     <li className="list-pointer"><a className = "drop-galleries" onClick={this.handleClick}>My Galleries</a></li>
-                    {/* <li className="list-pointer"><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li> */}
+                    <li className="list-pointer"><a className = "drop-edit-profile" href="#/profile/edit">Edit Profile</a></li>
                     {/* <li className="list-pointer"><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li> */}
                     <li className="list-pointer"><a className = "drop-logout" onClick={this.props.logout}>Logout</a></li>
                     </ul>  

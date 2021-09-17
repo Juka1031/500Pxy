@@ -57,6 +57,7 @@ class ProfileEdit extends React.Component {
         return e => this.setState({[field]: e.currentTarget.value});
     }
     render() {
+        const preview = this.state.avatarUrl ? <img src = {this.state.avatarUrl}  className="preview-edit-ava" /> :<img src={avatar2}  className="preview-edit-ava" />
         return(
             <div>
                 <div className="empty-space"></div>
@@ -83,7 +84,9 @@ class ProfileEdit extends React.Component {
                             className="input-file-button" 
                             accept="image/jpeg, image/png"
                             />
+                            {preview}<br/>
                         <label className="upload-label-button2" htmlFor="upload-image"><p>Select Avatar</p></label>
+                            
                             <div className="upload-right-container"> 
                                 <label className= "upload-title-label">First Name
                                     <br/>
