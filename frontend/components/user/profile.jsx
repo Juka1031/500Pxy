@@ -83,8 +83,8 @@ class Profile extends React.Component {
                         <img className = "user-profile-avatar" src={avatar2}/>
 
                         <h1 className="profile-name">{firstName} {lastName}</h1>
-                        <h1 className="profile-biography">testtestest{biography}</h1>
-                        <h2 className="profile-stats">1<a>Following</a> { }Photo Likes</h2>
+                        <h1 className="profile-biography">{biography}</h1>
+                        <h2 className="profile-stats"><a>Following</a> { }Photo Likes</h2>
                         {/* <button onClick={this.follow.bind(this)}>Follow</button> */}
                         
                     </div>

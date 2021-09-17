@@ -10,8 +10,10 @@
 .user-profile-avatar{
     position: absolute;
     top:40%;
-    left: 45%;
-    right: 50;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     bottom: 0;
     height: 125px;
     width: 135px;
