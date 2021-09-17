@@ -35,15 +35,27 @@ export const logout = () => ( //delete session
     })
 );
   
-export const updateUser = user => {
+export const updateUser2 = user => {
    return(
     $.ajax({
-        url: `/api/users/${user.id}`,
+        url: `/api/users/${user.get('user[id]')}`,
         method: 'PATCH',
-        data: { user }
+        data: user,
+        contentType: false,
+        processData: false
     })
    )
 }
+
+export const updateUser = user => {
+    return(
+     $.ajax({
+         url: `/api/users/${user.id}`,
+         method: 'PATCH',
+         data: { user }
+     })
+    )
+ }
 
 
 export const getUser = (userId) => (

@@ -8,7 +8,7 @@ class ProfileEdit extends React.Component {
             lastName: this.props.currentUser.lastName,
             email: this.props.currentUser.email,
             id: this.props.currentUser.id,
-            avatarImg: null,
+            avatar: null,
             avatarUrl:null,
             coverImg:null,
             coverUrl:null
@@ -16,26 +16,35 @@ class ProfileEdit extends React.Component {
         };
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleUpload = this.handleUpload.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleUpload(e){
         const file = e.currentTarget.files[0]
         const fileReader = new FileReader();
         fileReader.onloadend = () => {
-            this.setState({coverImg: file, coverUrl: fileReader.result})
+            this.setState({avatar: file, avatarUrl: fileReader.result})
         }
         if (file){
             fileReader.readAsDataURL(file)
         }
+        
+        
+    }
+
+    handleSubmit(e){
+        e.preventDefault()
         const formData = new FormData();
+            formData.append("user[id]", this.state.id)
             formData.append("user[firstName]", this.state.firstName)
             formData.append("user[lastName]", this.state.lastName)
             formData.append("user[email]", this.state.email)
-            if (this.state.coverImg) {
-                formData.append("user[cover]", this.state.coverImg)
+            if (this.state.avatar) {
+                formData.append("user[avatar]", this.state.avatar)
+            }else{
+                debugger
             }
             this.props.updateUser(formData)
-        
     }
 
     handleUpdate(e){
@@ -67,7 +76,14 @@ class ProfileEdit extends React.Component {
                         
                         <div className="stage2-right-side">
                         <h1>Edit Gallery</h1>
-                        <input id="upload-image" type="file" style={{ display: "none" }} onChange={this.handleUpload} className="input-file-button" accept="image/jpeg, image/png"/>
+                        <input 
+                            id="upload-image" 
+                            type="file" 
+                            style={{ display: "none" }} 
+                            onChange={this.handleUpload} 
+                            className="input-file-button" 
+                            accept="image/jpeg, image/png"
+                            />
                         <label className="upload-label-button" htmlFor="upload-image"><p>Select Image</p></label>
                             <div className="upload-right-container"> 
                                 <label className= "upload-title-label">First Name
@@ -97,7 +113,7 @@ class ProfileEdit extends React.Component {
                         <br/>
                         <br/>
                         {/* <button className= "delete-button" onClick={this.handleDelete}>Delete</button> */}
-                        <button className = "upload-button" onClick={this.handleUpdate}>Save Change</button>
+                        <button className = "upload-button" onClick={this.handleSubmit}>Save Change</button>
                         <br/>
                         <br/>
                         <br/>

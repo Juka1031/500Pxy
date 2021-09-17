@@ -55,6 +55,14 @@ export const updateUser = user => dispatch => (
     
 )
 
+
+export const updateUser2 = user => dispatch => (
+    SessionAPIUtil.updateUser2(user)
+    .then(user => dispatch({type: RECEIVE_CURRENT_USER, user}))
+
+    
+)
+
 export const getUser = (userId) => dispatch=>(
     SessionAPIUtil.getUser(userId)
     .then((user)=>dispatch(({type:RECEIVE_USER, user})))

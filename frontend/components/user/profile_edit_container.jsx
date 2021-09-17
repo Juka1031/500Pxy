@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { updateUser } from "../../actions/session_actions";
+import { updateUser2 } from "../../actions/session_actions";
 import ProfileEdit from "./profile_edit";
 
 class ProfileEditForm extends React.Component {
@@ -32,7 +32,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch, ownProps) => {
     return{
-        updateUser: (user)=>dispatch(updateUser(user))
+        updateUser: (user)=>dispatch(updateUser2(user))
     }
 }
 

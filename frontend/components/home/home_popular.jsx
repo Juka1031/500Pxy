@@ -40,8 +40,8 @@ class HomePopular extends React.Component {
             <div>
                 <div className="empty-space"></div>
                 <div className="top-message">
-                    <h1 className="featured-galleries-text">The newest uploads</h1>
-                    <h3 className="browse-galleries-text">Be one of the first to discover the photos just added to 500pxy.</h3>
+                    <h1 className="featured-galleries-text">What's popular today</h1>
+                    <h3 className="browse-galleries-text">See the newest hottest images</h3>
                 </div>
                 <div className="home-links">
                     <span className="home-link-text-active"><a href="#/popular" className="home-visited">POPULAR</a></span>

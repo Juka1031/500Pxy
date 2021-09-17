@@ -10,6 +10,7 @@
 .user-profile-avatar{
     position: absolute;
     top:40%;
+    border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
     left: 0;

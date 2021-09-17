@@ -131,7 +131,7 @@
 
 .upload-button-header {
     height:50px;
-    margin-top: 15px;
+    margin-top: 10px;
     align-items: center;
     width:130px;
     border-radius: 25px;
@@ -162,4 +162,7 @@
 
 .header-avatar {
     margin-top: 9px;
+    height:30px;
+    width:30px;
+    border-radius: 50%;
 }

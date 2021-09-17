@@ -3,11 +3,10 @@ import { Link } from "react-router-dom"
 // import Avatar from 'Images/avatar.PNG'
 
 
-const Header = ({loggedStatus, logout}) => {
+const Header = ({loggedStatus, logout, currentUser}) => {
 
 
     if (loggedStatus) {//if a user is logged in, present a nav bar with log out
-        
         return(
             
             <div>
@@ -31,8 +30,7 @@ const Header = ({loggedStatus, logout}) => {
                     </div>
                     <div className = "logged-header-right-side">
                     <ul className="avatar">
-                        <ProfileDrop logout={logout} loggedStatus= {loggedStatus}>
-                             {/* <ProfileDropItems logout={logout} loggedStatus= {loggedStatus}/> */}
+                        <ProfileDrop logout={logout} loggedStatus= {loggedStatus} currentUser= {currentUser}>
                         </ProfileDrop>
                     </ul>
                         <button className="upload-button-header">
@@ -101,13 +99,15 @@ class ProfileDrop extends React.Component {
     }
   
     render() {
+        let ava
+        this.props.currentUser.avatar ? ava = this.props.currentUser.avatar : ava = avatar
         const profileLink = `#/users/${this.props.loggedStatus.id}/images`
         if (!this.state.active)
             return (
                 <>
                     <li>
                         <a href="#" onClick={this.handleClick}>
-                            <img className="header-avatar" src= {avatar}/>
+                            <img className="header-avatar" src= {ava}/>
                         </a>
                     </li>
                     { this.state.active && this.props.children }
@@ -118,7 +118,7 @@ class ProfileDrop extends React.Component {
                 <>
                 <li>
                     <a href="#" onClick={this.handleClick}>
-                        <img className="header-avatar" src= {avatar}/>
+                        <img className="header-avatar" src= {ava}/>
                     </a>
                 </li>
                 <div className="profile-dropdown">
