@@ -39,7 +39,7 @@ class ProfileGallery extends React.Component {
                         {background}
                     </div>
                     <div className="user-profile-information-container">
-                        <img className = "user-profile-avatar" src={ava}/>
+                        <a href="#/profile/edit"><img className = "user-profile-avatar" src={ava}/></a>
                         <h1 className="profile-name">{this.props.user.firstName} {this.props.user.lastName}</h1>
                         <h1 className="profile-biography">{this.props.user.biography}</h1>
                         <h2 className="profile-stats"><a>Following</a> { }Photo Likes</h2>

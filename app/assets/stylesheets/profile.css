@@ -148,3 +148,67 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 25px;
 }
+
+/* Profile Edit */
+
+.edit-container {
+    top:17%;
+    margin-top:100px;
+    margin-left:auto;
+    margin-right: auto;
+    height: 500px;
+    border:1px solid;
+    border-color:gray;
+    color: gray;
+    width: 400px;
+    background-color: white;
+    border-radius: 5px;
+
+}
+.edit-profile-text{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+
+.upload-label-button2 {
+    display: inline-block;
+    color:white;
+    background-color:rgb(0, 89, 255);
+    width: 150px;
+    margin-left: 120px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 20px;
+    vertical-align: middle;
+    text-align: center;
+    
+}
+
+.upload-label-button2:hover {
+    background-color: rgb(41, 134, 247);
+    cursor: pointer;
+}
+
+.upload-label-button2 p {
+    margin: 12px;
+}
+
+
+.upload-button2{
+    margin-left: 30px;
+    border:none;
+    border-radius: 25px;
+    width: 130px;
+    height: 45px;
+    margin-left: 130px;
+    font-size: 18px;
+    color: white;
+    background-color: rgb(30, 101, 253);
+}
+
+.upload-button2:hover {
+    background-color: rgb(87, 140, 255);
+    cursor:pointer
+}

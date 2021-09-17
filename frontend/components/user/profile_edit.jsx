@@ -73,8 +73,8 @@ class ProfileEdit extends React.Component {
                         </div>
                         <br/>
                         
-                        <div className="stage2-right-side">
-                        <h1>Edit Profile</h1>
+                        <div className="edit-container">
+                        <h1 className="edit-profile-text">Edit Profile</h1>
                         <input 
                             id="upload-image" 
                             type="file" 
@@ -83,7 +83,7 @@ class ProfileEdit extends React.Component {
                             className="input-file-button" 
                             accept="image/jpeg, image/png"
                             />
-                        <label className="upload-label-button" htmlFor="upload-image"><p>Select Image</p></label>
+                        <label className="upload-label-button2" htmlFor="upload-image"><p>Select Avatar</p></label>
                             <div className="upload-right-container"> 
                                 <label className= "upload-title-label">First Name
                                     <br/>
@@ -112,7 +112,7 @@ class ProfileEdit extends React.Component {
                         <br/>
                         <br/>
                         {/* <button className= "delete-button" onClick={this.handleDelete}>Delete</button> */}
-                        <button className = "upload-button" onClick={this.handleSubmit}>Save Change</button>
+                        <button className = "upload-button2" onClick={this.handleSubmit}>Save Change</button>
                         <br/>
                         <br/>
                         <br/>

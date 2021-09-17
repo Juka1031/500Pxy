@@ -79,7 +79,7 @@ class Profile extends React.Component {
                         
                     </div>
                     <div className="user-profile-information-container">
-                        <img className = "user-profile-avatar" src={ava}/>
+                        <a href="#/profile/edit"><img className = "user-profile-avatar" src={ava}/></a>
 
                         <h1 className="profile-name">{firstName} {lastName}</h1>
                         <h1 className="profile-biography">{biography}</h1>
