@@ -39,7 +39,6 @@ class Api::UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        debugger
         if @user.update(user_params)
 
             render 'api/users/show'

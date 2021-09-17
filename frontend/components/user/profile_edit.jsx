@@ -42,7 +42,6 @@ class ProfileEdit extends React.Component {
             if (this.state.avatar) {
                 formData.append("user[avatar]", this.state.avatar)
             }else{
-                debugger
             }
             this.props.updateUser(formData)
     }
@@ -62,7 +61,7 @@ class ProfileEdit extends React.Component {
             <div>
                 <div className="empty-space"></div>
                <div>
-                   <h1>Edit Profile</h1>
+                   
                </div>
 
 
@@ -75,7 +74,7 @@ class ProfileEdit extends React.Component {
                         <br/>
                         
                         <div className="stage2-right-side">
-                        <h1>Edit Gallery</h1>
+                        <h1>Edit Profile</h1>
                         <input 
                             id="upload-image" 
                             type="file" 
