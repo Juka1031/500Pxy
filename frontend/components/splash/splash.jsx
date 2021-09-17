@@ -8,7 +8,7 @@ const Splash = () => {
         <div className="splash-full-body">
             <div className="discover-container">
                 <div className="custom-shape-divider-bottom-1628697126">
-                    <svg className ="fuck" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
                     </svg>
                 </div>
@@ -39,6 +39,19 @@ const Splash = () => {
                         <h5>Always down to interact and meet new people. Will not shy away from new experiences and hope to learn the best from everyone.</h5>
                     </div>
                 </div>
+            </div>
+            <div className="portfolio-div">
+            <h2 className="portfolio-text">Portfolio</h2>
+                <img src={mountain} className="mountain-img"/>
+            </div>
+            <div className="project-list">
+                <div className="project-containers">
+                    <h1>Ascension</h1>
+                    <h4>A 2d platformer built in javascript, featuring a dynamic engine that supports gravity and friction. Find your way to the top and Ascend!</h4>.
+                    <img src={ascension} className="ascension-gif" />
+                </div>
+                <div className="project-containers"><h1>MERN Stack</h1></div>
+                
             </div>
             <div className="join-community">
                 <h3>Join our community today</h3>

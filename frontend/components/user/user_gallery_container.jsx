@@ -45,8 +45,14 @@ class UserGalleryIndex extends React.Component {
         else {
             return(
             <div>  
-                <h1>You currently have no galleries</h1>
-                <Link to="/create/gallery"><button>Create a Gallery</button></Link>
+                <h1 className="no-galleries">You currently have no galleries</h1>
+                <div className="create-gallery-div">
+                            <div ><Link to="/create/gallery">
+                                <img className="curate-image" src={curate}/><br/>
+                                <span className="curate-message">Curate images using Galleries</span>
+                                <button className="create-button-gallery">Create a Gallery</button></Link>
+                                
+                            </div></div>
             </div>
             )
         }

@@ -22,11 +22,11 @@ const Header = ({loggedStatus, logout}) => {
                         </ul>
                         </div>
 
-                        <span><a href="#">Licensing</a></span>
-                        <span><a href="#">Portfolio</a></span>
-                        <span><a href="#">Memberships</a></span>
-                        <span><a href="#">Quests</a></span>
-                        <span><a href="#">Blog</a></span>
+                        <span><a href="#">Popular</a></span>
+                        <span><a href="#">Galleries</a></span>
+                        <span><a href="#">Fresh</a></span>
+                        {/* <span><a href="#">Quests</a></span>
+                        <span><a href="#">Blog</a></span> */}
                     </div>
                     <div className = "logged-header-right-side">
                     <ul className="avatar">
@@ -57,11 +57,11 @@ const Header = ({loggedStatus, logout}) => {
                             
                         </ul>
                         </div>
-                    <span><a href="#">Licensing</a></span>
-                    <span><a href="#">Resources</a></span>
-                    <span><a href="#">Memberships</a></span>
-                    <span><a href="#">Quests</a></span>
-                    <span><a href="#">Blog</a></span>
+                        <span><a href="#/popular">Popular</a></span>
+                        <span><a href="#/galleries">Galleries</a></span>
+                        <span><a href="#/fresh">Fresh</a></span>
+                    {/* <span><a href="#">Quests</a></span>
+                    <span><a href="#">Blog</a></span> */}
                 </div>
                 <div className = "header-right-side">
                     

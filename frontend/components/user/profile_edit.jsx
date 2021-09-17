@@ -4,15 +4,39 @@ class ProfileEdit extends React.Component {
         super(props);
         this.state = {
             username: this.props.currentUser.username,
-            firstName: this.props.xcurrentUser.firstName,
+            firstName: this.props.currentUser.firstName,
             lastName: this.props.currentUser.lastName,
             email: this.props.currentUser.email,
-            id: this.props.currentUser.id
-            // avatarimage
+            id: this.props.currentUser.id,
+            avatarImg: null,
+            avatarUrl:null,
+            coverImg:null,
+            coverUrl:null
+
         };
         this.handleUpdate = this.handleUpdate.bind(this);
+        this.handleUpload = this.handleUpload.bind(this)
     }
 
+    handleUpload(e){
+        const file = e.currentTarget.files[0]
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({coverImg: file, coverUrl: fileReader.result})
+        }
+        if (file){
+            fileReader.readAsDataURL(file)
+        }
+        const formData = new FormData();
+            formData.append("user[firstName]", this.state.firstName)
+            formData.append("user[lastName]", this.state.lastName)
+            formData.append("user[email]", this.state.email)
+            if (this.state.coverImg) {
+                formData.append("user[cover]", this.state.coverImg)
+            }
+            this.props.updateUser(formData)
+        
+    }
 
     handleUpdate(e){
 
@@ -29,7 +53,7 @@ class ProfileEdit extends React.Component {
             <div>
                 <div className="empty-space"></div>
                <div>
-                   <h1>Gallery Manager</h1>
+                   <h1>Edit Profile</h1>
                </div>
 
 
@@ -43,36 +67,36 @@ class ProfileEdit extends React.Component {
                         
                         <div className="stage2-right-side">
                         <h1>Edit Gallery</h1>
-
+                        <input id="upload-image" type="file" style={{ display: "none" }} onChange={this.handleUpload} className="input-file-button" accept="image/jpeg, image/png"/>
+                        <label className="upload-label-button" htmlFor="upload-image"><p>Select Image</p></label>
                             <div className="upload-right-container"> 
-                                <label className= "upload-title-label">Title
+                                <label className= "upload-title-label">First Name
                                     <br/>
                                     <input 
                                         type="text"
-                                        value = {this.state.gallery_title}
-                                        onChange = {this.update('gallery_title')}
+                                        value = {this.state.firstName}
+                                        onChange = {this.update('firstName')}
                                         className = "upload-text-area"
                                     />
                                 </label>
                                 <br/>
                                 <br/>
-                                <label className="upload-description-label">Description
+                                <label className="upload-description-label">Last Name
                                     <br/>
 
                                     <textarea 
                                     type="text"
-                                    value = {this.state.gallery_description}
-                                    onChange = {this.update('gallery_description')}
+                                    value={this.state.lastName}
+                                    onChange= {this.update('lastName')}
                                     className = "upload-text-area2"
-                                    cols="30" 
-                                    rows="10">
+                                    >
                                     </textarea>
                                 </label>
                         </div>
                         <br/>
                         <br/>
                         <br/>
-                        <button className= "delete-button" onClick={this.handleDelete}>Delete</button>
+                        {/* <button className= "delete-button" onClick={this.handleDelete}>Delete</button> */}
                         <button className = "upload-button" onClick={this.handleUpdate}>Save Change</button>
                         <br/>
                         <br/>

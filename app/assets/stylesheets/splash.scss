@@ -5,7 +5,7 @@
     /* background-color: cornflowerblue; */
     /* background-image: url('../images/2.jpg'); */
     /* background-image: url(./1.jpg); */
-    background-image: image-url("2.jpg");
+    background-image: image-url("splash2.jpg");
     background-size: 100% 100%;
     height: 700px;
 
@@ -177,7 +177,7 @@
 
 .custom-shape-divider-bottom-1628697126 {
     position: absolute;
-    bottom: 152px;
+    bottom: 150px;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -196,6 +196,41 @@
     fill: #FFFFFF;
 }
 
-.fuck{
+.portfolio-div{
+    height: 320;
+    width: 100%;
+}
 
+.mountain-img{
+    height: 320px;
+    width: 100%;
+    filter: grayscale(100%);
+}
+
+.portfolio-text{
+    position: absolute;
+    margin-left: 42%;
+    margin-top: 7%;
+    z-index:1;
+    color:white;
+    font-size: 55px;
+}
+
+.project-list{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    height:350px;
+    width:100%;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.project-containers{
+    text-align: center;
+    color: rgb(136, 136, 136);
+    width: 40%;
+}
+
+.ascension-gif{
+    width:500px;
+    height: auto;
 }

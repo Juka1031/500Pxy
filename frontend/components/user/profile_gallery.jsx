@@ -24,6 +24,11 @@ class ProfileGallery extends React.Component {
 
     render(){
         if (this.props.user){
+            let background
+            if(this.props.images.length>0){
+            
+                background = <img src={this.props.images[Math.floor(Math.random()*this.props.images.length)].imageUrl} className="user-profile-top-img"/>
+            }
             return (
                 <div className="profile-container">
                     <br/>
@@ -32,10 +37,10 @@ class ProfileGallery extends React.Component {
                     <br/>
                     <br/>
                     <div className="user-profile-top-background">
-
+                        {background}
                     </div>
                     <div className="user-profile-information-container">
-                        <img className = "user-profile-avatar" src={avatar}/>
+                        <img className = "user-profile-avatar" src={avatar2}/>
                         <h1 className="profile-name">{this.props.user.firstName} {this.props.user.lastName}</h1>
                         <h1 className="profile-biography">testtestest{this.props.user.biography}</h1>
                         <h2 className="profile-stats">1<a>Following</a> { }Photo Likes</h2>

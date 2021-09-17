@@ -63,6 +63,11 @@ class Profile extends React.Component {
         const firstName = this.props.user.lastName
         const lastName = this.props.user.firstName
         const biography = this.props.user.biography
+        let background
+        if(this.props.images.length>0){
+            
+            background = <img src={this.props.images[Math.floor(Math.random()*this.props.images.length)].imageUrl} className="user-profile-top-img"/>
+        }
             return (
                 <div className="profile-container">
                     <br/>
@@ -71,10 +76,11 @@ class Profile extends React.Component {
                     <br/>
                     <br/>
                     <div className="user-profile-top-background">
-
+                        {background}
+                        
                     </div>
                     <div className="user-profile-information-container">
-                        <img className = "user-profile-avatar" src={avatar}/>
+                        <img className = "user-profile-avatar" src={avatar2}/>
 
                         <h1 className="profile-name">{firstName} {lastName}</h1>
                         <h1 className="profile-biography">testtestest{biography}</h1>
