@@ -50,7 +50,13 @@ const Header = ({loggedStatus, logout}) => {
             <div className="header-container">
                 <div className = "header-left-side">
                     <span ><a href="#"><img src={logo} className="Logo"/></a></span>
-                    <span><a href="#">Discover</a></span>
+                    <div className = "logged-header-left-side"> 
+                        <ul className="discover-drop">
+                            <DiscoverDrop >
+                            </DiscoverDrop>
+                            
+                        </ul>
+                        </div>
                     <span><a href="#">Licensing</a></span>
                     <span><a href="#">Resources</a></span>
                     <span><a href="#">Memberships</a></span>
@@ -158,7 +164,6 @@ class DiscoverDrop extends React.Component {
     }
   
     render() {
-        const profileLink = `#/users/${this.props.loggedStatus.id}/images`
         if (!this.state.active)
             return (
                 <>

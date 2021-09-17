@@ -15,7 +15,7 @@ class Api::GalleriedImagesController < ApplicationController
     end
 
     def destroy
-        @galleried_image= GalleriedImage.find_by(gallery_id: params[:gallery_id], gallery_image_id: params[:gallery_image_id])
+        @galleried_image= GalleriedImage.find_by(id: params[:id])
         if @galleried_image && @galleried_image.delete
         end
     end

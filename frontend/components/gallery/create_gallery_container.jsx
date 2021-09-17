@@ -11,7 +11,7 @@ const mSTP = ( { entities: {users}, session}) => {
     };
   };
 
-  const mDTP = dispatch => ({
+  const mDTP = (dispatch, ownProps) => ({
       
     createGallery: (gallery) => dispatch(createGallery(gallery)),
     

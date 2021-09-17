@@ -39,7 +39,6 @@ class Api::ImagesController < ApplicationController
     def destroy
         @image = current_user.images.find_by(id: params[:id])
         if @image && @image.delete 
-            render 'api/images/index'
         end
     end
 

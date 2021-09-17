@@ -40,16 +40,9 @@ class GalleryForm extends React.Component {
     render(){
         return(
             <div className="create-gallery-container">
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+                <div className="empty-space"></div>
                 <div className="create-gallery-form-container">
-                <form >
+                <form className="create-gallery-form">
                     <label className= "create-gallery-label">Title
                         <br/>
                         <input 
@@ -69,7 +62,10 @@ class GalleryForm extends React.Component {
                         value = {this.state.description}
                         onChange = {this.update('description')}
                         cols="30" 
-                        rows="10">
+                        rows="10"
+                        className = "create-gallery-text-area-2"
+                        >
+                            
                         </textarea>
                     </label>
 

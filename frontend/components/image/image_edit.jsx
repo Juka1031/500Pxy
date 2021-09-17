@@ -37,24 +37,21 @@ class ImageForm extends React.Component {
         return(
             <div>
                 <div className="empty-space"></div>
-               <div>
-                   <h1>Image Manager</h1>
-               </div>
+                    <div>
+                        <h1 className="image-manager-text">Image Manager</h1>
+                    </div>
+                <div className="edit-container-image">
+                    
+
+                    <div>
+                            <img className="image-edit-preview" src={this.props.image.imageUrl}  />
+                    </div>
 
                <div>
-                    <img className="image-edit-preview" src={this.props.image.imageUrl}  />
-               </div>
-
-               <div>
-                   
                     <form >
-                        <div className="preview-container">
-                            {/* <div className = "image-preview">{preview}</div> */}
-                        </div>
                         <br/>
-                        
                         <div className="stage2-right-side">
-                        <h1>Edit Image</h1>
+                        <h1 className="edit-image-text">Edit Image</h1>
 
                             <div className="upload-right-container"> 
                                 <label className= "upload-title-label">Title
@@ -94,6 +91,7 @@ class ImageForm extends React.Component {
 
                     </form>
 
+               </div>
                </div>
             </div>
         )
