@@ -23,8 +23,9 @@ const Header = ({loggedStatus, logout}) => {
                         </div>
 
                         <span><a href="#/popular">Popular</a></span>
-                        <span><a href="#/galleries">Galleries</a></span>
                         <span><a href="#/fresh">Fresh</a></span>
+                        <span><a href="#/galleries">Galleries</a></span>
+                        
                         {/* <span><a href="#">Quests</a></span>
                         <span><a href="#">Blog</a></span> */}
                     </div>
@@ -58,8 +59,9 @@ const Header = ({loggedStatus, logout}) => {
                         </ul>
                         </div>
                         <span><a href="#/popular">Popular</a></span>
-                        <span><a href="#/galleries">Galleries</a></span>
                         <span><a href="#/fresh">Fresh</a></span>
+                        <span><a href="#/galleries">Galleries</a></span>
+                        
                     {/* <span><a href="#">Quests</a></span>
                     <span><a href="#">Blog</a></span> */}
                 </div>

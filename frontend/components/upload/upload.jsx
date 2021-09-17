@@ -89,7 +89,7 @@ class Upload extends React.Component {
                 :
                 <div className="stage2-container">
                     <h1>Upload</h1>
-                    <form >
+                    <form className="stage2-form">
                         <div className="preview-container">
                             <div className = "image-preview">{preview}</div>
                         </div>

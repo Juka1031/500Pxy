@@ -83,6 +83,11 @@
     height: 100vh;
 }
 
+.stage2-form{
+    display: flex;
+    justify-content: space-between;
+}
+
 .preview-container {
     margin-left: 2%;
 }
