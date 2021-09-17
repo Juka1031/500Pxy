@@ -26,7 +26,7 @@ class ImageForm extends React.Component {
         // formData.append("image[image_title]", this.state.title)
         // formData.append("image[image_description]", this.state.description)
         this.props.updateImage(this.state)
-        this.props.history.push(`#/images/${this.state.id}`)
+        this.props.history.push(`/images/${this.state.id}`)
 
     }
 
