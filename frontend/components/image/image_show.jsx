@@ -1,12 +1,16 @@
 import React from "react";
+import Follow from "../follow/follow_container";
+import Unfollow from "../follow/unfollow_container";
 
 class ImageShow extends React.Component {
 
     constructor(props){
         super(props)
         this.state ={
-            fullscreen: false
+            fullscreen: false,
+            following: null
         }
+        this.changeFollow.bind(this)
     }
 
 
@@ -40,10 +44,50 @@ class ImageShow extends React.Component {
     routeChange(){
         window.location.replace(`#/images/${this.props.match.params.imageId}/edit`)
     }
+
+    // changeFollow(e){
+    //     e.preventDefault();
+    //     if(this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id)){
+    //         this.props.deleteFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id})
+    //         this.setState({following:false})
+    //         return
+    //     }else{
+    //         this.props.createFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id})
+    //         this.setState({following:true})
+    //         return
+    //     }
+    // }
+
+    changeFollow(e){
+        e.preventDefault();
+        debugger
+        if(this.state.following){
+            this.props.deleteFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id})
+            this.setState({following:false})
+        }
+        else{
+        // this.props.createFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id});
+        const formData = new FormData();
+            formData.append("follow[follower_id]", this.props.currentUserId)
+            formData.append("follow[followed_id]", this.props.image.uploader_id)
+        this.props.createFollow(formData)
+        this.setState({following:true})
+        }
+    }
+
+    // componentDidUpdate(e){
+    //     window.location.reload();
+    // }
+
+
     
  
 
     render(){
+        if(!this.props.image){
+            return null
+        }
+ 
         const control = this.state.fullscreen ? min : max
         let featured = this.props.images.sort(() => 0.5 - Math.random()).slice(0,3)
         featured = featured.map( (image, idx) => {
@@ -51,13 +95,39 @@ class ImageShow extends React.Component {
             <li className = "featured-image-cont" key={idx}>
                 <a href={`#/images/${image.id}`}><img className= "user-images-featured" src={image.imageUrl} loading="lazy"/></a>
                 <a className="image-title"href={`#/images/${image.id}`}>{image.image_title}</a>
-                <div><h3>{image.image_title} </h3></div>
+                <div><h3>{image.image_title}</h3></div>
             </li>
             )
         })
-        const deleteButton = this.props.uploader[this.props.image.uploader_id].id === this.props.currentUserId ?
-        <button className="edit-button" onClick={this.routeChange.bind(this)}>...</button> : <div></div>
-            return(
+        let deleteButton
+        let followButton
+        if (this.props.currentUserId){
+
+            deleteButton = this.props.users[this.props.image.uploader_id].id === this.props.currentUserId ?
+            <button className="edit-button" onClick={this.routeChange.bind(this)}>...</button> : null
+            const heartButton = this.props.users[this.props.image.uploader_id].id != this.props.currentUserId ?
+            <button className="edit-button" onClick={this.changeFollow.bind(this)}><img className="follow-heart"src={heart2}/></button> : null
+            const found = this.props.users[this.props.currentUserId].follows.find(user => user.id===this.props.image.uploader_id)
+            followButton = found ? <button className="edit-button" onClick={this.changeFollow.bind(this)}><img className="follow-heart"src={heart3}/></button>
+            :heartButton
+        }
+
+
+        const buttons = this.props.currentUserId ? <div>{followButton}{deleteButton}</div> : null
+
+
+        
+       
+          
+               
+    
+                
+            
+        // const button =this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id) ?
+        //     <Unfollow follower_id={this.props.currentUserId} followed_id={this.props.image.uploader_id}/> :
+        //     <Follow follower_id={this.props.currentUserId} followed_id={this.props.image.uploader_id}/>
+
+        return(
             <div>
                 <div className='empty-space'></div>
                 <div className="image-show-container" id='fullscreen'>
@@ -68,13 +138,13 @@ class ImageShow extends React.Component {
                 </div>
                 <div className="image-show-bottom">
                     <div className="image-show-details">
-                        <div className="button-container"><img className="follow-heart"src={heart2}/>{deleteButton}</div>
-                    
+                        <div className="button-container">{buttons}</div>
+                        
                         <div className="image-show-top">
                             <img src={avatar}/>
                             <div>
                                 <h1 className="image-show-title">{this.props.image.image_title}</h1>
-                                <h1 className="uploaded-by">by <span className="show-username">{this.props.uploader[this.props.image.uploader_id].username}</span></h1>
+                                <h1 className="uploaded-by">by <span className="show-username">{this.props.users[this.props.image.uploader_id].username}</span></h1>
                             </div>
                         
                         
@@ -95,7 +165,6 @@ class ImageShow extends React.Component {
                                 </ul>
                             </div>
                         </div>
-
                     </div>
                     <div className="comment-box">
                         <div>
@@ -116,3 +185,87 @@ class ImageShow extends React.Component {
 }
 
 export default ImageShow
+
+
+// import React from "react";
+// import Follow from "../follow/follow_container";
+// import Unfollow from "../follow/unfollow_container";
+
+// class ImageShow extends React.Component {
+
+//     constructor(props){
+//         super(props)
+//         this.state ={
+//             fullscreen: false,
+//             following: null
+//         }
+//         this.changeFollow.bind(this)
+//     }
+
+//     // changeFollow(e){
+//     //     e.preventDefault();
+//     //     if(this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id)){
+//     //         this.props.deleteFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id})
+//     //         this.setState({following:false})
+//     //         return
+//     //     }else{
+//     //         this.props.createFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id})
+//     //         this.setState({following:true})
+//     //         return
+//     //     }
+//     // }
+
+//     changeFollow(e){
+//         e.preventDefault();
+//         if(this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id)){
+//             this.props.deleteFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id})
+//         }
+//         else{
+//         this.props.createFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id});
+//         }
+
+//     }
+
+
+    
+ 
+
+//     render(){
+
+//         // let followButton
+//         // if (this.props.currentUserId){
+
+           
+//         //     const heartButton = this.props.users[this.props.image.uploader_id].id != this.props.currentUserId ?
+//         //     <button onClick={this.changeFollow.bind(this)}><img src={heart2}/></button> : <div></div>
+//         //     const found = this.props.users[this.props.currentUserId].follows.find(user => user.id===this.props.image.uploader_id)
+//         //     followButton = found ? <button onClick={this.changeFollow.bind(this)}><img src={heart3}/></button>
+//         //     :heartButton
+//         // }
+
+//         const button =this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id) ?
+//             <Unfollow follower_id={this.props.currentUserId} followed_id={this.props.image.uploader_id}/> :
+//             <Follow follower_id={this.props.currentUserId} followed_id={this.props.image.uploader_id}/>
+
+//        return(
+       
+//            <div>
+//                <br />
+//                <br />
+//                <br />
+//                <br />
+//                <br />
+//                <br />
+//                <br />
+//                <br />
+//                <br />
+//                <div><h1>tessssssssst</h1></div>
+//                <div>{button}</div>
+               
+//            </div>
+//        )   
+
+//     }
+// }
+
+// export default ImageShow

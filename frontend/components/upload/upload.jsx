@@ -45,7 +45,7 @@ class Upload extends React.Component {
                 formData.append("image[uploaded_image]", this.state.imageFile)
             }
             this.props.upload(formData)
-            window.location.replace(`#/users/${this.state.uploaderId}/images`)
+            // window.location.replace(`#/users/${this.state.uploaderId}/images`)
 
     }
 

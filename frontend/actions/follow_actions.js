@@ -26,10 +26,7 @@ export const fetchFollows = () => dispatch => (
 
 export const createFollow = follow => dispatch => (
     FollowAPIUtil.createFollow(follow)
-    
-    .then(follow => 
-        {
-             dispatch(receiveFollow(follow))})
+    .then(follow => {dispatch(receiveFollow(follow))})
 );
 
 export const deleteFollow = follow => dispatch => (

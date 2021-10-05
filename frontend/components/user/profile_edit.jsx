@@ -49,7 +49,7 @@ class ProfileEdit extends React.Component {
     handleUpdate(e){
 
         e.preventDefault();
-        this.props.updateUser(this.state).then(() => this.props.history.push(`/galleries/${this.state.id}`))
+        this.props.updateUser(this.state).then(() => window.location.replace(`#/galleries/${this.state.id}`))
 
     }
 
@@ -57,6 +57,7 @@ class ProfileEdit extends React.Component {
         return e => this.setState({[field]: e.currentTarget.value});
     }
     render() {
+        if(this.props.currentUser.email === undefined) window.location.reload(false);
         const preview = this.state.avatarUrl ? <img src = {this.state.avatarUrl}  className="preview-edit-ava" /> :<img src={avatar2}  className="preview-edit-ava" />
         return(
             <div>

@@ -6,9 +6,23 @@ class Api::FollowsController < ApplicationController
         render :show
     end
 
+    # def create
+    #     @follow = Follow.new()
+    #     @follow.follower_id = params[:follower_id]
+    #     @follow.followed_id = params[:followed_id]
+    #     if (@follow.save && @follow)
+            
+    #         render :show
+    #     else
+    #         render json: @follow.errors.full_messages, status: 422
+    #     end
+    # end
+
     def create
         @follow = Follow.new(follow_params)
-        if @follow.save && @follow
+        # @follow.follower_id = params[:follower_id]
+        # @follow.followed_id = params[:followed_id]
+        if @follow.save
             render 'api/follows/show'
         else
             render json: @follow.errors.full_messages, status: 422
@@ -16,9 +30,9 @@ class Api::FollowsController < ApplicationController
     end
 
     def destroy
-        @follow = Follow.find_by(id: params[:id])
-        if @follow && @follow.destroy
-            # render :index
+        @follow = Follow.find_by(follower_id: params[:follower_id], followed_id: params[:followed_id])
+        if (@follow && @follow.delete)
+            render :index
         else
             render json: @follow.errors.full_messages, status: 422
         end
@@ -27,6 +41,8 @@ class Api::FollowsController < ApplicationController
     private
 
     def follow_params
-        params.require(:follow).permit( :follower_id, :followed_id)
+        params.require(:follow).permit(:follower_id, :followed_id)
     end
 end
+
+

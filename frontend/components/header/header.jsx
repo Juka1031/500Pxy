@@ -1,5 +1,6 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
+
 // import Avatar from 'Images/avatar.PNG'
 
 
@@ -98,6 +99,12 @@ class ProfileDrop extends React.Component {
 
         
     }
+
+    handleLogout(e){
+        e.preventDefault()
+        this.props.logout().then(()=>{window.location.replace(`#/home`)})
+        
+    }
   
     render() {
         let ava
@@ -127,8 +134,7 @@ class ProfileDrop extends React.Component {
                     <li className="list-pointer"><a className = "drop-profile" onClick={this.handleClick}>Profile</a></li>
                     <li className="list-pointer"><a className = "drop-galleries" onClick={this.handleClick}>My Galleries</a></li>
                     <li className="list-pointer"><a className = "drop-edit-profile" href="#/profile/edit">Edit Profile</a></li>
-                    {/* <li className="list-pointer"><a className = "drop-settings" onClick={this.props.logout}>Settings</a></li> */}
-                    <li className="list-pointer"><a className = "drop-logout" onClick={this.props.logout}>Logout</a></li>
+                    <li className="list-pointer"><a className = "drop-logout" onClick={this.handleLogout.bind(this)}>Logout</a></li>
                     </ul>  
                 </div>
             </>
@@ -192,7 +198,6 @@ class DiscoverDrop extends React.Component {
                         <li className="list-pointer"><a className = "drop-popular" onClick={this.handleClick}>Popular</a></li>
                         <li className="list-pointer"><a className = "drop-fresh" onClick={this.handleClick}>Fresh Images</a></li>
                         <li className="list-pointer"><a className = "drop-galleries" onClick={this.handleClick}>Galleries</a></li>
-                        {/* <li className="list-pointer"><a className = "drop-liked-photos" onClick={this.props.logout}>Liked Photos</a></li> */}
                     </ul>  
                 </div>
             </>
@@ -200,23 +205,7 @@ class DiscoverDrop extends React.Component {
                 
     }
 }
-  
-// const ProfileDropItems = props => {
-//     
-//     return (
-//         <div className="profile-dropdown">
-//             <ul>
-//                 <li><a className = "profile-items" href={profileLink}>Profile</a></li>
-//                 <li><a className = "profile-items" onClick={props.logout}>Galleries</a></li>
-//                 <li><a className = "profile-items" onClick={props.logout}>Liked Photos</a></li>
-//                 <li><a className = "profile-items" onClick={props.logout}>Settings</a></li>
-//                 <li><a className = "profile-items" onClick={props.logout}>Logout</a></li>
-//             </ul>
-            
-//         </div>
-//     )
-// }
-  
+
 
 
 export default Header;

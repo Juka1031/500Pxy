@@ -18,7 +18,7 @@ const imagesReducer = (state = {}, action) => {
             delete nextState[action.imageId]
             return nextState;
         default:
-            return {};
+            return state;
     }
 };
   

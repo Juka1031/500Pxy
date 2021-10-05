@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import ImageShow from './image_show';
 import { fetchImage, fetchImages} from '../../actions/image_actions';
-import { fetchUsers, getUser } from '../../actions/session_actions';
+import { fetchUsers, getUser, updateUser2 } from '../../actions/session_actions';
 import React from 'react';
+import { createFollow, deleteFollow } from '../../actions/follow_actions';
 
 
 class ImageShowContainer extends React.Component {
@@ -22,10 +23,7 @@ class ImageShowContainer extends React.Component {
   
     render() {
       const { image } = this.props;
-      if (!image){
-        return null;
-      } 
-
+      
       return (
         <ImageShow
             {...this.props}
@@ -47,8 +45,9 @@ const mSTP = (state, ownProps) => {
     return {
         image: state.entities.images[ownProps.match.params.imageId],
         images: Object.values(state.entities.images),
-        uploader: state.entities.users,
-        currentUserId: state.session.id
+        users: state.entities.users,
+        currentUserId: state.session.id,
+        ownProps
     }
 }
 
@@ -56,7 +55,11 @@ const mDTP = (dispatch) => {
     return {
         fetchImages: () => dispatch(fetchImages()),
         fetchUsers: () => dispatch(fetchUsers()),
-        getUser: (userId) =>dispatch(getUser(userId))
+        getUser: (userId) =>dispatch(getUser(userId)),
+        createFollow : (follow) =>dispatch(createFollow(follow)),
+        deleteFollow : (follow) =>dispatch(deleteFollow(follow)),
+        updateUser: (user)=>dispatch(updateUser2(user)) 
+
     }
 }
 
