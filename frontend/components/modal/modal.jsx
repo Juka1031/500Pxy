@@ -6,9 +6,6 @@ import FollowModalContainer from "../follow/follow_modal_container";
 class Modal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-        closed:null
-    }
 
     this.hideModal = this.hideModal.bind(this);
   }
@@ -22,7 +19,6 @@ class Modal extends React.Component {
             let follow = this.props.follows[i]
             if(follow.removed === true){
                 this.props.deleteFollow({follower_id:this.props.currentUserId, followed_id:follow.id})
-                this.setState({closed:true})
                 changed = true;
             }
             
