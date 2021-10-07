@@ -45,7 +45,8 @@ class Upload extends React.Component {
                 formData.append("image[uploaded_image]", this.state.imageFile)
             }
             this.props.upload(formData)
-            // window.location.replace(`#/users/${this.state.uploaderId}/images`)
+            window.location.replace(`#/users/${this.state.uploaderId}/images`)
+            window.location.reload(true);
 
     }
 
@@ -69,7 +70,7 @@ class Upload extends React.Component {
             return (
                 this.state.stage === 1 ?
                 <div className="upload-stage1">
-                    <h1 className="upload-text">Upload</h1>
+                    <h1 className="upload-text-edit">Upload</h1>
                     <div className="upload-top-container">
                         
                         <img className = "upload-arrow" src={uparrow}/>
@@ -88,7 +89,7 @@ class Upload extends React.Component {
                 </div>
                 :
                 <div className="stage2-container">
-                    <h1>Upload</h1>
+                    <h1 className="upload-text-edit">Upload</h1>
                     <form className="stage2-form">
                         <div className="preview-container">
                             <div className = "image-preview">{preview}</div>

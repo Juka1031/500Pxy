@@ -90,6 +90,7 @@
     font-size: 14px;
 }
 .profile-upload-button-2-container{
+    margin-left: 1%;
     justify-content: center;
     width: 350px;
     height: 200px;
@@ -137,6 +138,7 @@
 .user-profile-top-img{
     max-width: 100%;
     height: auto;
+    min-width: 100%;
 }
 
 .user-profile-top-background{

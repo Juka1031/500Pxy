@@ -33,8 +33,8 @@ class Api::FollowsController < ApplicationController
         @follow = Follow.find_by(follower_id: params[:follower_id], followed_id: params[:followed_id])
         if (@follow && @follow.delete)
             render :index
-        else
-            render json: @follow.errors.full_messages, status: 422
+        # else
+        #     render json: @follow.errors.full_messages, status: 422
         end
     end
 

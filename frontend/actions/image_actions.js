@@ -1,6 +1,7 @@
 import * as ImageAPIUtils from '../utils/image_api_util';
 
 export const RECEIVE_ALL_IMAGES = 'RECEIVE_ALL_IMAGES'; // all images, needed?
+export const RECEIVE_ALL_USER_IMAGES = 'RECEIVE_ALL_USER_IMAGES';
 export const RECEIVE_IMAGES = 'RECEIVE_IMAGES'; //uploader images
 export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
 export const REMOVE_IMAGE = 'REMOVE_IMAGE';
@@ -12,6 +13,10 @@ const receiveImages = images => ({
     images
 })
 
+const receiveUserImages = images => ({
+    type: RECEIVE_ALL_USER_IMAGES,
+    images
+})
 // const receiveImages = (images) => ({
 //     type: RECEIVE_IMAGES,
 //     images,
@@ -55,7 +60,7 @@ export const fetchImages = () => dispatch => {
 
 export const fetchUploaderImages = (uploaderId) => dispatch => {
     return ImageAPIUtils.fetchUploaderImages(uploaderId)
-        .then(images => (dispatch(receiveImages(images))))
+        .then(images => (dispatch(receiveUserImages(images))))
 }
   
 export const fetchImage = imageId => dispatch => {

@@ -8,7 +8,7 @@ class ImageShow extends React.Component {
         super(props)
         this.state ={
             fullscreen: false,
-            following: null
+            following: null,
         }
         this.changeFollow.bind(this)
     }
@@ -44,6 +44,8 @@ class ImageShow extends React.Component {
     routeChange(){
         window.location.replace(`#/images/${this.props.match.params.imageId}/edit`)
     }
+    componentDidUpdate(){
+    }
 
     // changeFollow(e){
     //     e.preventDefault();
@@ -60,8 +62,7 @@ class ImageShow extends React.Component {
 
     changeFollow(e){
         e.preventDefault();
-        debugger
-        if(this.state.following){
+        if(this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id)){
             this.props.deleteFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id})
             this.setState({following:false})
         }
@@ -73,6 +74,8 @@ class ImageShow extends React.Component {
         this.props.createFollow(formData)
         this.setState({following:true})
         }
+        this.props.fetchUsers()
+
     }
 
     // componentDidUpdate(e){
@@ -102,7 +105,6 @@ class ImageShow extends React.Component {
         let deleteButton
         let followButton
         if (this.props.currentUserId){
-
             deleteButton = this.props.users[this.props.image.uploader_id].id === this.props.currentUserId ?
             <button className="edit-button" onClick={this.routeChange.bind(this)}>...</button> : null
             const heartButton = this.props.users[this.props.image.uploader_id].id != this.props.currentUserId ?
@@ -115,17 +117,16 @@ class ImageShow extends React.Component {
 
         const buttons = this.props.currentUserId ? <div>{followButton}{deleteButton}</div> : null
 
-
         
        
           
                
     
                 
-            
+        //     debugger
         // const button =this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id) ?
-        //     <Unfollow follower_id={this.props.currentUserId} followed_id={this.props.image.uploader_id}/> :
-        //     <Follow follower_id={this.props.currentUserId} followed_id={this.props.image.uploader_id}/>
+        //     <Unfollow currentUserId={this.props.currentUserId} imageUploaderId={this.props.image.uploader_id} following={this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id)}/> :
+        //     <Follow currentUserId={this.props.currentUserId} imageUploaderId={this.props.image.uploader_id}  following={this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id)}/>
 
         return(
             <div>
@@ -186,86 +187,3 @@ class ImageShow extends React.Component {
 
 export default ImageShow
 
-
-// import React from "react";
-// import Follow from "../follow/follow_container";
-// import Unfollow from "../follow/unfollow_container";
-
-// class ImageShow extends React.Component {
-
-//     constructor(props){
-//         super(props)
-//         this.state ={
-//             fullscreen: false,
-//             following: null
-//         }
-//         this.changeFollow.bind(this)
-//     }
-
-//     // changeFollow(e){
-//     //     e.preventDefault();
-//     //     if(this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id)){
-//     //         this.props.deleteFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id})
-//     //         this.setState({following:false})
-//     //         return
-//     //     }else{
-//     //         this.props.createFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id})
-//     //         this.setState({following:true})
-//     //         return
-//     //     }
-//     // }
-
-//     changeFollow(e){
-//         e.preventDefault();
-//         if(this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id)){
-//             this.props.deleteFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id})
-//         }
-//         else{
-//         this.props.createFollow({follower_id:this.props.currentUserId, followed_id:this.props.image.uploader_id});
-//         }
-
-//     }
-
-
-    
- 
-
-//     render(){
-
-//         // let followButton
-//         // if (this.props.currentUserId){
-
-           
-//         //     const heartButton = this.props.users[this.props.image.uploader_id].id != this.props.currentUserId ?
-//         //     <button onClick={this.changeFollow.bind(this)}><img src={heart2}/></button> : <div></div>
-//         //     const found = this.props.users[this.props.currentUserId].follows.find(user => user.id===this.props.image.uploader_id)
-//         //     followButton = found ? <button onClick={this.changeFollow.bind(this)}><img src={heart3}/></button>
-//         //     :heartButton
-//         // }
-
-//         const button =this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id) ?
-//             <Unfollow follower_id={this.props.currentUserId} followed_id={this.props.image.uploader_id}/> :
-//             <Follow follower_id={this.props.currentUserId} followed_id={this.props.image.uploader_id}/>
-
-//        return(
-       
-//            <div>
-//                <br />
-//                <br />
-//                <br />
-//                <br />
-//                <br />
-//                <br />
-//                <br />
-//                <br />
-//                <br />
-//                <div><h1>tessssssssst</h1></div>
-//                <div>{button}</div>
-               
-//            </div>
-//        )   
-
-//     }
-// }
-
-// export default ImageShow

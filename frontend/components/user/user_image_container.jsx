@@ -56,7 +56,7 @@ class UserImageIndex extends React.Component {
                     <a className="image-title"href={`#/images/${image.id}`}>{image.image_title}</a>
                 </li>
                 );
-            }).sort(() => Math.random() - 0.5);
+            })
         }else if(this.props.gallery ==="fresh"){
             return this.props.images.map( (image, idx) => {
                 

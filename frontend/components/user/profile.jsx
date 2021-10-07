@@ -1,7 +1,7 @@
 import React from 'react';
 import UserImageIndex from './user_image_container';
 import { Link } from "react-router-dom"
-
+import ModalContainer from '../modal/modal_container';
 class Profile extends React.Component {
     constructor(props){
         super(props)
@@ -13,11 +13,6 @@ class Profile extends React.Component {
 
 
     }
-    // componentDidMount(){
-    //     this.props.fetchOwnerGalleries(this.props.currentPageUserId)
-    //     this.props.fetchUploaderImages(this.props.currentPageUserId)
-    //     this.props.fetchUsers()
-    // }
 
         componentDidMount(){
         
@@ -32,29 +27,6 @@ class Profile extends React.Component {
     }
 
 
-    // componentDidMount(){
-    //     this.props.fetchOwnerGalleries(this.props.currentPageUserId)
-    //         .then(()=>{
-    //             this.props.fetchUploaderImages(this.props.currentPageUserId)
-    //             .then(()=>{
-    //                 this.props.fetchUsers()
-    //             })
-    //         })
-        
-        
-        
-    // }
-
-    follow(e){
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append("follow[follower_id]", this.props.currentUserId)
-        formData.append("follow[followed_id]", this.props.userPageId)
-        this.props.createFollow(formData)
-        // setTimeout(function () {
-        //     window.location.reload(false)
-        //   }, 1)
-    }
 
 
     render(){
@@ -70,8 +42,9 @@ class Profile extends React.Component {
             
             background = <img src={this.props.images[Math.floor(Math.random()*this.props.images.length)].imageUrl} className="user-profile-top-img"/>
         }
-            return (
+         return (
                 <div className="profile-container">
+                    <ModalContainer follows={this.props.user.follows} currentUserId = {this.props.currentPageUserId}/>
                    <div className="empty-space"></div>
                    <br />
                     <div className="user-profile-top-background">
@@ -79,12 +52,12 @@ class Profile extends React.Component {
                         
                     </div>
                     <div className="user-profile-information-container">
-                        <a href="#/profile/edit"><img className = "user-profile-avatar" src={ava}/></a>
+                        <a href="#/profile/edit"><img className = "user-profile-avatar ignore" src={ava}/></a>
 
+                        <br />
                         <h1 className="profile-name">{firstName} {lastName}</h1>
                         <h1 className="profile-biography">{biography}</h1>
-                        <h2 className="profile-stats"><a>Following</a> { }Photo Likes</h2>
-                        {/* <button onClick={this.follow.bind(this)}>Follow</button> */}
+                        <h2 className="profile-stats"><a onClick={() => this.props.openModal('follows')}>Following {this.props.user.follows.length}</a> Followers {this.props.user.followers.length}</h2>
                         
                     </div>
 
@@ -111,5 +84,6 @@ class Profile extends React.Component {
         }
     }
 }
+import follow_modal_container from '../follow/follow_modal_container';
 
 export default Profile

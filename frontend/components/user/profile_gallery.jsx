@@ -1,6 +1,7 @@
 import React from 'react';
 import UserGalleryIndex from './user_gallery_container';
 import { Link } from "react-router-dom"
+import ModalContainer from '../modal/modal_container';
 
 class ProfileGallery extends React.Component {
     constructor(props){
@@ -33,6 +34,7 @@ class ProfileGallery extends React.Component {
             this.props.user.avatar ? ava = this.props.user.avatar : ava = avatar2
             return (
                 <div className="profile-container">
+                    <ModalContainer follows={this.props.user.follows} currentUserId = {this.props.currentPageUserId}/>
                     <div className="empty-space"></div>
                     <br />
                     <div className="user-profile-top-background">
@@ -40,9 +42,10 @@ class ProfileGallery extends React.Component {
                     </div>
                     <div className="user-profile-information-container">
                         <a href="#/profile/edit"><img className = "user-profile-avatar" src={ava}/></a>
+                        <br />
                         <h1 className="profile-name">{this.props.user.firstName} {this.props.user.lastName}</h1>
                         <h1 className="profile-biography">{this.props.user.biography}</h1>
-                        <h2 className="profile-stats"><a>Following</a> { }Photo Likes</h2>
+                        <h2 className="profile-stats"><a onClick={() => this.props.openModal('follows')}>Following {this.props.user.follows.length}</a> Followers {this.props.user.followers.length}</h2>
                         
                         
                     </div>

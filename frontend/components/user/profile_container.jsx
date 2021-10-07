@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { fetchUploaderImages } from '../../actions/image_actions';
 import { fetchOwnerGalleries } from '../../actions/gallery_action';
+import { openModal } from '../../actions/modal_actions';
 import Profile from './profile';
 import { fetchUsers } from '../../actions/session_actions';
-import { createFollow } from '../../actions/follow_actions';
 
 
 const mSTP = (state, ownProps) => {
@@ -11,9 +11,8 @@ const mSTP = (state, ownProps) => {
         images: Object.values(state.entities.images),
         galleries: Object.values(state.entities.galleries),
         user: state.entities.users[ownProps.match.params.userId],
-        currentUserId: state.session.id, //not current user but userid of params
+        currentUserId: state.session.id,
         currentPageUserId: ownProps.match.params.userId,
-        userPageId: ownProps.match.params.userId,
         currentUser: state.entities.users[state.session.id]
     }
 };
@@ -21,10 +20,10 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch =>{
     return {
 
-        createFollow: (follow)=>dispatch(createFollow(follow)),
         fetchOwnerGalleries : (galleryOwnerId) => dispatch(fetchOwnerGalleries(galleryOwnerId)),
         fetchUploaderImages: (uploaderId)=>dispatch(fetchUploaderImages(uploaderId)),
-        fetchUsers: ()=> dispatch(fetchUsers())
+        fetchUsers: ()=> dispatch(fetchUsers()),
+        openModal: (modal)=> dispatch(openModal(modal))
     }
 }
 
