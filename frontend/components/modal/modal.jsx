@@ -7,6 +7,7 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.hideModal = this.hideModal.bind(this);
   }
 
@@ -24,9 +25,7 @@ class Modal extends React.Component {
             
         }
     this.props.closeModal()
-    if(changed){
-        window.location.reload(true);
-    }
+
     }
   }
 

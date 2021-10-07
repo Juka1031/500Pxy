@@ -232,6 +232,8 @@
 }
 
 .following-button{
+    width: 20%;
+    margin: auto;
     color: #2986F7;
 }
 
