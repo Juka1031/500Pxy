@@ -46,14 +46,14 @@ const Splash = () => {
             </div>
             <div className="project-list">
                 <div className="project-containers">
-                    <h1>Ascension</h1>
+                    <h1><a className="project-links" target="_blank" href="https://juka1031.github.io/Ascension/">Ascension</a></h1>
                     <h4>A 2d platformer built in javascript, featuring a dynamic engine that supports gravity and friction. Find your way to the top and Ascend!</h4>.
-                    <img src={ascension} className="ascension-gif" />
+                    <a className="project-links" target="_blank" href="https://juka1031.github.io/Ascension/"><img src={ascension} className="ascension-gif" /></a>
                 </div>
                 <div className="project-containers">
-                    <h1>Home Sweet Woof</h1>
-                    <h4>A dog adoption platform that connects potential adopters with shelters through a systematic database of adoptable dogs</h4>
-                    <img src={mern} className="ascension-gif" />
+                    <h1><a className="project-links" target="_blank" href="https://homesweetwoof.herokuapp.com/#/">Home Sweet Woof</a></h1>
+                    <h4>A dog adoption platform that connects potential adopters with shelters through a systematic and dynamic database of adoptable dogs</h4>
+                    <a className="project-links" target="_blank" href="https://homesweetwoof.herokuapp.com/#/"><img className="project-img"src={mern} className="ascension-gif" /></a>
                 </div>
             </div>
             <div className="join-community">
@@ -61,7 +61,7 @@ const Splash = () => {
                 <h5 className="join-text-2">Do you love photography? Want to constantly stay inspired and be surrounded by millions of like-minded creators? Then sign-up today and get rewarded for your love of photography.</h5>
                 <button className="footer-login-button"><Link to="/signup">Sign up</Link></button>
             </div>
-
+            
             <div className="splash-footer">
 
                  <ul className="footer-text"> 
