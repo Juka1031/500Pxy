@@ -32,8 +32,8 @@ class Profile extends React.Component {
     render(){
         // const { firstName, lastName, biography} = this.props.user
         if(this.props.user){
-        const firstName = this.props.user.lastName
-        const lastName = this.props.user.firstName
+        const firstName = this.props.user.firstName
+        const lastName = this.props.user.lastName
         const biography = this.props.user.biography
         let background
         let ava

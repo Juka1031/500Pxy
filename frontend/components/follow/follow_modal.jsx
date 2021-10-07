@@ -55,7 +55,7 @@ class FollowModal extends React.Component {
                 }
             }
             return(
-                    <li>
+                    <li key={idx}>
                         <div className="each-follow ignore">{followButton()}</div>
                     </li>
             )
