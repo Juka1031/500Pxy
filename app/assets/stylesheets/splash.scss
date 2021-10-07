@@ -22,7 +22,7 @@
 
 .discover-text {
     position: absolute;
-    margin-top: 8%;
+    margin-top: -12rem;
     margin-left: 13%;
     width:550px;
     color:white;
@@ -127,7 +127,7 @@
     margin-right: auto;
     left: 0;
     right: 0;
-    margin-top: 190px;
+    margin-top: 230px;
     border-radius: 50px;
     border:none;
     width: 215px;
@@ -231,6 +231,16 @@
 }
 
 .ascension-gif{
-    width:500px;
-    height: auto;
+    width: 90%;
+    height: 50%;
+}
+
+.footer-text li a:visited{
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-text li a {
+    color: inherit;
+    text-decoration: none;
 }

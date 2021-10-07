@@ -50,8 +50,11 @@ const Splash = () => {
                     <h4>A 2d platformer built in javascript, featuring a dynamic engine that supports gravity and friction. Find your way to the top and Ascend!</h4>.
                     <img src={ascension} className="ascension-gif" />
                 </div>
-                <div className="project-containers"><h1>MERN Stack</h1></div>
-                
+                <div className="project-containers">
+                    <h1>Home Sweet Woof</h1>
+                    <h4>A dog adoption platform that connects potential adopters with shelters through a systematic database of adoptable dogs</h4>
+                    <img src={mern} className="ascension-gif" />
+                </div>
             </div>
             <div className="join-community">
                 <h3>Join our community today</h3>
@@ -61,25 +64,20 @@ const Splash = () => {
 
             <div className="splash-footer">
 
-                 <ul>
+                 <ul className="footer-text"> 
                     <h6>Community</h6>
-                    <li>Popular Photos</li>
-                    <li>Galleries</li>
-                    <li>Trending</li>
+                    <li><a href="#/popular">Popular</a></li>
+                    <li><a href="#/fresh">Trending</a></li>
+                    <li><a href="#/galleries">Galleries</a></li>
 
                 </ul>
-                <ul>
-                    <h6>Company</h6>
-                    <li>Newsroom</li>
-                    <li>About us</li>
-                    <li>Carrer</li>
-                </ul>
                 
-                <ul>
+                <ul className="footer-text">
                     <h6>About me</h6>
-                    <li><a href="https://github.com/Juka1031">Github</a> </li>
-                    <li>Linkedin</li>
-                    <li>Other projects</li>
+                    <li><a target="_blank" href="https://github.com/Juka1031">Github</a> </li>
+                    <li><a target="_blank" href="https://www.linkedin.com/in/julian-kang-09b561221/">LinkedIn</a> </li>
+                    <li><a target="_blank" href="https://angel.co/u/julian-kang-1">AngelList</a> </li>
+                    <li>Portfolio</li>
 
                 </ul>
 

@@ -44,7 +44,7 @@ class Profile extends React.Component {
         }
          return (
                 <div className="profile-container">
-                    <ModalContainer follows={this.props.user.follows} currentUserId = {this.props.currentPageUserId}/>
+                    <ModalContainer follows={this.props.user.follows} currentUserId = {this.props.currentPageUserId} users={this.props.users}/>
                    <div className="empty-space"></div>
                    <br />
                     <div className="user-profile-top-background">
@@ -53,11 +53,11 @@ class Profile extends React.Component {
                     </div>
                     <div className="user-profile-information-container">
                         <a href="#/profile/edit"><img className = "user-profile-avatar ignore" src={ava}/></a>
-
+                        <a href="#/profile/edit"><img className="pencil-image"src={pencil2}/></a>
                         <br />
                         <h1 className="profile-name">{firstName} {lastName}</h1>
                         <h1 className="profile-biography">{biography}</h1>
-                        <h2 className="profile-stats"><a onClick={() => this.props.openModal('follows')}>Following {this.props.user.follows.length}</a> Followers {this.props.user.followers.length}</h2>
+                        <h2 className="profile-stats"><a onClick={() => this.props.openModal('follows')}><h3 className="following-button">Following {this.props.user.follows.length}</h3> </a></h2>
                         
                     </div>
 

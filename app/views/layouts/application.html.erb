@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('favicon.png') %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
      <%= javascript_include_tag 'application' %>
@@ -68,6 +69,15 @@
     </script>
     <script type="text/javascript">
         window.avatar2 = "<%= image_url('avatar2.png') %>";
+    </script>
+    <script type="text/javascript">
+        window.close1 = "<%= image_url('close.png') %>";
+    </script>
+    <script type="text/javascript">
+        window.camera = "<%= image_url('camera.png') %>";
+    </script>
+    <script type="text/javascript">
+        window.mern = "<%= image_url('mern.PNG') %>";
     </script>
 
 

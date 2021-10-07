@@ -43,9 +43,6 @@ class Modal extends React.Component {
       case "follows":
         component = <FollowModalContainer follows={this.props.follows}/>;
         break;
-      case "signup":
-        component = <SignupFormContainer />;
-        break;
       default:
         return null;
     }

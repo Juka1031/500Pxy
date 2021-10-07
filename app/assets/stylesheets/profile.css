@@ -139,6 +139,7 @@
     max-width: 100%;
     height: auto;
     min-width: 100%;
+    margin-top: -25%;
 }
 
 .user-profile-top-background{
@@ -220,4 +221,20 @@
     height:50px;
     border-radius: 50%;
     margin-left: 175px;
+}
+
+.pencil-image{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 55%;
+    top: 480px;
+}
+
+.following-button{
+    color: #2986F7;
+}
+
+.following-button:hover{
+    cursor: pointer;
 }

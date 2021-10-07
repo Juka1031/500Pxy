@@ -110,7 +110,7 @@ class GalleryShow extends React.Component {
                         <div className="gallery-modal-screen" onClick={this.closeModal}>  
                         </div>
                         <div className="gallery-modal-form">
-                            <button onClick={this.closeModal} className="close-select-image-button">X</button>
+                            <button onClick={this.closeModal} className="close-select-image-button"><img className="close-button-image"src={close1}/></button>
                             <h1 className="select-image-text">Select an Image to add to your Gallery</h1>
                             <div className="gallery-modal-images">
                                 <UserImageIndex

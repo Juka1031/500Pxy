@@ -117,17 +117,6 @@ class ImageShow extends React.Component {
 
         const buttons = this.props.currentUserId ? <div>{followButton}{deleteButton}</div> : null
 
-        
-       
-          
-               
-    
-                
-        //     debugger
-        // const button =this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id) ?
-        //     <Unfollow currentUserId={this.props.currentUserId} imageUploaderId={this.props.image.uploader_id} following={this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id)}/> :
-        //     <Follow currentUserId={this.props.currentUserId} imageUploaderId={this.props.image.uploader_id}  following={this.props.users[this.props.currentUserId].follows.find(user => user.id === this.props.image.uploader_id)}/>
-
         return(
             <div>
                 <div className='empty-space'></div>

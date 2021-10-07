@@ -34,7 +34,7 @@ class GalleryForm extends React.Component {
             <div>
                 <div className="empty-space"></div>
                <div>
-                   <h1>Gallery Manager</h1>
+                   <h2 className="gallery-manager-text">Gallery Manager</h2>
                </div>
 
 
@@ -46,8 +46,8 @@ class GalleryForm extends React.Component {
                         </div>
                         <br/>
                         
-                        <div className="stage2-right-side">
-                        <h1>Edit Gallery</h1>
+                        <div className="gallery-manager-form">
+                        <h2 className="edit-gallery-text">Edit Gallery</h2>
 
                             <div className="upload-right-container"> 
                                 <label className= "upload-title-label">Title
@@ -77,7 +77,7 @@ class GalleryForm extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <button className= "delete-button" onClick={this.handleDelete}>Delete</button>
+                        <button className= "delete-button-edit" onClick={this.handleDelete}>Delete</button>
                         <button className = "upload-button" onClick={this.handleUpdate}>Save Change</button>
                         <br/>
                         <br/>
