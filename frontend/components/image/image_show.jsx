@@ -122,7 +122,7 @@ class ImageShow extends React.Component {
                 <div className='empty-space'></div>
                 <div className="image-show-container" id='fullscreen'>
                    
-                    <img className="image-show-image" src={this.props.image.imageUrl}/>
+                    <img className="image-show-image" src={this.props.image.imageUrl} loading="lazy"/>
                      <img className="expand-button"onClick={this.openFullscreen.bind(this)} src={control}/>
                     
                 </div>

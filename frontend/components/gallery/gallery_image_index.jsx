@@ -24,7 +24,7 @@ class GalleryImageIndex extends React.Component {
                     <img src={xbut} className="x-image"/>
                 </button>
                 <a href={`#/images/${image.id}`} id={image.id} onClick={this.addImageToGallery} className="user-index-images">
-                    <img className= "user-images" src={image.imageUrl}/>
+                    <img className= "user-images" src={image.imageUrl} loading="lazy"/>
                 </a>
                 <a  href={`#/images/${image.id}`} className="image-title">{image.image_title}</a>
             </li>

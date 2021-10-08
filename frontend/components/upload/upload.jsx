@@ -46,7 +46,6 @@ class Upload extends React.Component {
             }
             this.props.upload(formData)
             window.location.replace(`#/users/${this.state.uploaderId}/images`)
-            window.location.reload(true);
 
     }
 

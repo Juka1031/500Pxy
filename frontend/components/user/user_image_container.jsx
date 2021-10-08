@@ -31,22 +31,13 @@ class UserImageIndex extends React.Component {
                 return (
                 <li className = "image-container" key={idx}>
                     
-                    <a id={image.id} onClick={this.addImageToGallery} className="user-index-images"><img className= "user-images" src={image.imageUrl}/></a>
+                    <a id={image.id} onClick={this.addImageToGallery} className="user-index-images"><img className= "user-images" src={image.imageUrl} loading="lazy"/></a>
                     <a className="image-title">{image.image_title}</a>
                 </li>
                 );
             })
 
-            // return this.props.images.map( (image, idx) => {
-
-            //     return (
-            //     <li className = "image-container" key={idx}>
-                    
-            //         <a id={image.id} onClick={this.addImageToGallery} className="user-index-images"><img className= "user-images" src={image.imageUrl}/></a>
-            //         <a className="image-title">{image.image_title}</a>
-            //     </li>
-            //     );
-            // })
+   
         }else if(this.props.gallery ==="home"){
             return this.props.images.map( (image, idx) => {
                 
@@ -82,7 +73,7 @@ class UserImageIndex extends React.Component {
 
                 return (
                 <li className = "image-container" key={idx}>
-                    <a href={`#/images/${image.id}`}><img className= "user-images" src={image.imageUrl}/></a>
+                    <a href={`#/images/${image.id}`}><img className= "user-images" src={image.imageUrl} loading="lazy"/></a>
                     <a className="image-title"href={`#/images/${image.id}`}>{image.image_title}</a>
                 </li>
                 );
