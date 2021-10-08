@@ -48,8 +48,8 @@ class FollowModal extends React.Component {
                     <img className="follow-list-ava ignore" src={this.props.users[follow.id].avatar}/> :
                     <img className="follow-list-ava ignore" src={defaultAva}/>
                     return(
-                        <div className="follow-list-item">
-                            <div className="left-side-follow">{avatar}<span className="follow-list-name ignore">{follow.username}</span></div><button id={"unfollow"+idx} className="index-follow-button ignore" onClick={this.handleFollow.bind(this, follow,idx)}>Unfollow</button>
+                        <div className="follow-list-item ignore">
+                            <div className="left-side-follow ignore">{avatar}<span className="follow-list-name ignore">{follow.username}</span></div><button id={"unfollow"+idx} className="index-follow-button ignore" onClick={this.handleFollow.bind(this, follow,idx)}>Unfollow</button>
                         </div>
                     )
                 }
@@ -69,7 +69,7 @@ class FollowModal extends React.Component {
         return (
             <div>
                 <div className="follow-modal ignore">
-                <h2 className="follow-header">Following {this.props.follows.length}</h2>
+                <h2 className="follow-header ignore">Following {this.props.follows.length}</h2>
                     <ul className="follow-list ignore"> 
                         {this.renderFollows()}
                     </ul>

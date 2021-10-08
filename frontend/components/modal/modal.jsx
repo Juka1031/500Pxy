@@ -6,9 +6,20 @@ import FollowModalContainer from "../follow/follow_modal_container";
 class Modal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+        changed :false
+    }
 
 
     this.hideModal = this.hideModal.bind(this);
+  }
+
+  componentDidUpdate(){
+      if(this.state.changed === true){
+        debugger
+          this.setState(this.setState({changed :false}))
+          window.location.reload()
+      }
   }
 
   hideModal(e) {
@@ -25,7 +36,9 @@ class Modal extends React.Component {
             
         }
     this.props.closeModal()
-
+    if(changed){
+        this.setState({changed :true})
+    }
     }
   }
 
