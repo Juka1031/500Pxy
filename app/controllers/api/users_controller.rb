@@ -30,13 +30,23 @@ class Api::UsersController < ApplicationController
         @user.username = temp_username
         @user.firstName = ""
         @user.lastName = ""
-        
-        if @user.save
-
-            login!(@user)
-            render 'api/users/show'
+        valid_email = false
+        if email.count("@") == 1  && email.slice(email.index("@")+1..email.length).count(".") == 1
+            valid_email = true
+        end
+        if(valid_email)
+            if @user.save
+                login!(@user)
+                render 'api/users/show'
+            else
+                render json: @user.errors.full_messages, status: 422 
+            end
         else
-            render json: @user.errors.full_messages, status: 422
+            if @user.password.length < 8 
+                render json: ["Email is invalid", "Password is too short (minimum is 8 characters)"], status: 422
+            else
+                render json: ["Email is invalid"], status: 422
+            end
         end
     end
 

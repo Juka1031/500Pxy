@@ -57,6 +57,7 @@ class ProfileGallery extends React.Component {
 
                     <div className="user-profile-image-gallery-link">
                         <span><Link className="inactive-profile" to={`images`}>Photos  <span className="profile-image-count">{this.props.images.length}</span></Link></span> 
+                        <span>&nbsp;&nbsp;</span>
                         <span><Link className="active-profile"to={`galleries`}> Galleries <span className="profile-image-count">{this.props.galleries.length}</span></Link></span>
                     </div>
 
