@@ -1,4 +1,6 @@
 import React from 'react';
+import LazyLoad from 'react-lazyload';
+
 class UserImageIndex extends React.Component {
 
     constructor(props){
@@ -31,7 +33,7 @@ class UserImageIndex extends React.Component {
                 return (
                 <li className = "image-container" key={idx}>
                     
-                    <a id={image.id} onClick={this.addImageToGallery} className="user-index-images"><img className= "user-images" src={image.imageUrl} loading="lazy"/></a>
+                    <a id={image.id} onClick={this.addImageToGallery} className="user-index-images"><LazyLoad><img className= "user-images" src={image.imageUrl} loading="lazy"/></LazyLoad></a>
                     <a className="image-title">{image.image_title}</a>
                 </li>
                 );
@@ -43,7 +45,7 @@ class UserImageIndex extends React.Component {
                 
                 return (
                 <li className = "image-container" key={idx}>
-                    <a href={`#/images/${image.id}`}><img className= "user-images" src={image.imageUrl} loading="lazy"/></a>
+                    <a href={`#/images/${image.id}`}><LazyLoad><img className= "user-images" src={image.imageUrl} loading="lazy"/></LazyLoad></a>
                     <a className="image-title"href={`#/images/${image.id}`}>{image.image_title}</a>
                 </li>
                 );
@@ -53,7 +55,7 @@ class UserImageIndex extends React.Component {
                 
                 return (
                 <li className = "image-container" key={idx}>
-                    <a href={`#/images/${image.id}`}><img className= "user-images" src={image.imageUrl} loading="lazy"/></a>
+                    <a href={`#/images/${image.id}`}><LazyLoad><img className= "user-images" src={image.imageUrl} loading="lazy"/></LazyLoad></a>
                     <a className="image-title"href={`#/images/${image.id}`}>{image.image_title}</a>
                 </li>
                 );
@@ -63,7 +65,7 @@ class UserImageIndex extends React.Component {
                 
                 return (
                 <li className = "image-container" key={idx}>
-                    <a href={`#/images/${image.id}`}><img className= "user-images" src={image.imageUrl} loading="lazy"/></a>
+                    <a href={`#/images/${image.id}`}><LazyLoad><img className= "user-images" src={image.imageUrl} loading="lazy"/></LazyLoad></a>
                     <a className="image-title"href={`#/images/${image.id}`}>{image.image_title}</a>
                 </li>
                 );
@@ -73,7 +75,7 @@ class UserImageIndex extends React.Component {
 
                 return (
                 <li className = "image-container" key={idx}>
-                    <a href={`#/images/${image.id}`}><img className= "user-images" src={image.imageUrl} loading="lazy"/></a>
+                    <a href={`#/images/${image.id}`}><LazyLoad><img className= "user-images" src={image.imageUrl} loading="lazy"/></LazyLoad></a>
                     <a className="image-title"href={`#/images/${image.id}`}>{image.image_title}</a>
                 </li>
                 );
