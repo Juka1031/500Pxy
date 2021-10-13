@@ -15,6 +15,21 @@
  * Heroku the website hosting service used to host
  *  * SCSS/CSS/HTML 
 
+## Code
+
+```...javascript
+return uniqueImage.map((image, idx) => {
+    return (
+    <li className = "image-container" key={idx}>
+        <a id={image.id} onClick={this.addImageToGallery} className="user-index-images">
+            <LazyLoad><img className= "user-images" src={image.imageUrl}/></LazyLoad></a>
+        <a className="image-title">{image.image_title}</a>
+    </li>
+    );
+})
+```
+Focused on efficiency by not rendering duplicate images that have already been added to gallery to reduce load on servers. Also implemented lazy loading to prevent unnecessary loading of images based upon the users viewport
+
 
 ## Features
 
