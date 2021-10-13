@@ -16,7 +16,6 @@ class Modal extends React.Component {
 
   componentDidUpdate(){
       if(this.state.changed === true){
-        debugger
           this.setState(this.setState({changed :false}))
           window.location.reload()
       }

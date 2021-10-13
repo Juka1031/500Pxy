@@ -77,7 +77,7 @@ const Splash = () => {
                     <li><a target="_blank" href="https://github.com/Juka1031">Github</a> </li>
                     <li><a target="_blank" href="https://www.linkedin.com/in/julian-kang-09b561221/">LinkedIn</a> </li>
                     <li><a target="_blank" href="https://angel.co/u/julian-kang-1">AngelList</a> </li>
-                    <li>Portfolio</li>
+                    <li><a target="_blank" href="https://julian-kang.com/">Portfolio</a> </li>
 
                 </ul>
 
